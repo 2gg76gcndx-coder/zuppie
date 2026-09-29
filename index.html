@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#18152b">
+  <title>ZUPPIE BASEL — Big kids make plans too.</title>
+  <meta name="description" content="Your Friday evening and weekend guide to exhibitions, theatre, live music, cinema, culture, nightlife, flea markets and happy hours in Basel city.">
+  <link rel="canonical" href="https://zuppie.ch/">
+  <!-- Supply logo.png in the root of your Zuppie GitHub Pages repository. No logo is embedded here. -->
+  <link rel="icon" type="image/png" href="./logo.png">
+  <link rel="apple-touch-icon" href="./logo.png">
+  <meta property="og:title" content="ZUPPIE BASEL — Big kids make plans too.">
+  <meta property="og:description" content="Friday evening and weekend plans for grown-ups in Basel city.">
+  <style>
+    :root{color-scheme:light;--ink:#241c35;--muted:#726a83;--purple:#6540b9;--magenta:#e33e89;--coral:#f58b74;--line:#e9e2f2;--surface:#fff;--wash:#f7f3fc}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:#eae5f4}
+    body{margin:0;color:var(--ink);background:#eae5f4;font:15px/1.45 -apple-system,BlinkMacSystemFont,"Avenir Next",Inter,"Segoe UI",sans-serif}
+    button,input{font:inherit}.app{max-width:430px;min-height:100vh;margin:auto;background:#fbf9fd;box-shadow:0 16px 50px #27174716;overflow:hidden}
+    .hero{position:relative;padding:26px 22px 24px;color:white;background:radial-gradient(circle at 94% 4%,#fdafbf 0,transparent 38%),linear-gradient(135deg,#1e1a38 0%,#59308d 60%,#b93f83 100%);overflow:hidden}
+    .hero:after{content:"✦";position:absolute;right:24px;bottom:12px;font-size:67px;color:#ffdf8e65;transform:rotate(22deg)}
+    .logo{display:block;width:118px;max-height:105px;object-fit:contain;position:relative;z-index:1;margin-bottom:14px}
+    .brand-fallback{font-size:31px;font-weight:950;letter-spacing:-.06em;margin-bottom:14px}
+    .eyebrow{font-size:11px;font-weight:900;letter-spacing:.19em;text-transform:uppercase;color:#f9cced}
+    h1{font-size:35px;letter-spacing:-.05em;line-height:1.04;margin:9px 0 11px;max-width:320px}
+    .hero p{max-width:300px;color:#fbe7f8;font-size:14px;margin:0}
+    .scope{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px;position:relative;z-index:1}.scope span{font-size:11px;font-weight:800;background:#ffffff25;border:1px solid #ffffff35;border-radius:30px;padding:6px 9px}
+    main{padding:15px 13px 24px}.section-intro{margin:7px 4px 14px}.section-intro b{font-size:13px;letter-spacing:.13em;color:var(--magenta)}
+    .section-intro h2{font-size:27px;letter-spacing:-.045em;line-height:1.1;margin:6px 0}.section-intro p{margin:0;color:var(--muted);font-size:13px}
+    .day-radio{position:absolute;opacity:0;width:1px;height:1px}.day-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:15px;background:#efe9f6;padding:6px;border-radius:17px}
+    .day-tabs label{display:grid;place-items:center;text-align:center;min-height:62px;padding:8px 2px;cursor:pointer;background:#fff;border-radius:12px;border:1px solid #e5daef;font-size:14px;font-weight:900}
+    .day-tabs small{font-size:10px;color:var(--muted);font-weight:750;display:block}
+    #fri:checked~.day-tabs label[for=fri],#sat:checked~.day-tabs label[for=sat],#sun:checked~.day-tabs label[for=sun]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px #25143a23}
+    #fri:checked~.day-tabs label[for=fri] small,#sat:checked~.day-tabs label[for=sat] small,#sun:checked~.day-tabs label[for=sun] small{color:#f2c8e9}
+    .day-panel{display:none}#fri:checked~#panel-fri,#sat:checked~#panel-sat,#sun:checked~#panel-sun{display:block}
+    .date-head{border-radius:20px;padding:17px 18px;background:linear-gradient(100deg,#fce6ef,#eee3fb);margin:0 0 14px}
+    .date-head .small{font-size:11px;font-weight:900;letter-spacing:.17em;color:#9a4386}.date-head h3{font-size:25px;line-height:1.08;letter-spacing:-.04em;margin:6px 0}.date-head p{font-size:12px;color:#705a79;margin:0}
+    .notice{background:#fffbef;border:1px solid #f4e3bb;border-radius:15px;padding:13px 14px;font-size:12px;line-height:1.48;color:#65543a;margin:0 0 15px}
+    .category-nav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.category-nav a{color:#60438c;text-decoration:none;font-size:11px;font-weight:800;padding:7px 9px;background:#efe8f9;border-radius:20px}
+    .group{margin:0 0 14px;scroll-margin-top:15px}.group h4{display:flex;align-items:center;gap:9px;margin:0 0 7px;padding:11px 12px;background:#eee7f9;border-radius:13px;font-size:15px;line-height:1.12;letter-spacing:-.01em}
+    .group h4 .symbol{font-size:20px}.group h4 .spark{margin-left:auto;color:#dc4993}
+    .group.flohmi h4{background:#ffeddf}.group.happy-hour h4{background:#ffdee9}.group.picks h4{background:#e3e6fc}
+    .empty{border:1px dashed #d8cae6;background:#fff;border-radius:13px;color:#857a91;font-size:12px;padding:12px 13px}
+    .event-list{display:grid;gap:8px}.event{display:grid;grid-template-columns:1fr;gap:7px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px;box-shadow:0 3px 9px #1a12350a}
+    .event a{font-size:15px;font-weight:850;color:#4c258c;text-decoration:none}.event a:hover{text-decoration:underline}
+    .event dl{display:grid;grid-template-columns:59px 1fr;gap:3px 7px;margin:0;font-size:12px}.event dt{font-weight:800;color:#92869f}.event dd{margin:0;font-weight:650}
+    .event .remark{font-size:12px;color:#6f647a;margin:0}.event .external{font-size:12px}
+    .disclaimer{font-size:11px;text-align:center;color:#867c91;padding:4px 7px;line-height:1.5;margin:20px 0 0}
+    footer{background:#211b35;color:#eee4f4;padding:21px;text-align:center}footer .footer-brand{font-size:19px;font-weight:950;letter-spacing:-.035em}footer p{font-size:11px;color:#c5b9d6;line-height:1.5;margin:8px 0 0}
+    footer a{color:#f1c5df}.legal{margin-top:14px;border-top:1px solid #544861;padding-top:11px;text-align:left}.legal summary{cursor:pointer;font-weight:800;font-size:12px}.legal p{margin:7px 0}
+    @media(max-width:360px){.hero{padding:20px 16px}h1{font-size:31px}.day-tabs label{font-size:12px}.date-head h3{font-size:23px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <img class="logo" src="./logo.png" alt="ZUPPIE BASEL logo" onerror="this.style.display='none';document.getElementById('brand-fallback').hidden=false">
+    <div id="brand-fallback" class="brand-fallback" hidden>ZUPPIE BASEL ✦</div>
+    <div class="eyebrow">Basel city · Plans for grown-ups</div>
+    <h1>Big kids make plans too.</h1>
+    <p>Culture, music, markets, good drinks and those nights worth going out for.</p>
+    <div class="scope"><span>Friday evening</span><span>Saturday</span><span>Sunday</span><span>Basel municipality only</span></div>
+  </header>
+  <main>
+    <div class="section-intro"><b>✦ ZUPPIE PLANS</b><h2>This weekend in Basel</h2><p>Tap a day, explore its chapters, and open organisers’ official listings for details.</p></div>
+    <input class="day-radio" type="radio" name="day" id="fri" checked>
+    <input class="day-radio" type="radio" name="day" id="sat">
+    <input class="day-radio" type="radio" name="day" id="sun">
+    <nav class="day-tabs" aria-label="Choose event day">
+      <label for="fri">FRIDAY<small>02 Oct · 17:00+</small></label>
+      <label for="sat">SATURDAY<small>03 Oct · all day</small></label>
+      <label for="sun">SUNDAY<small>04 Oct · all day</small></label>
+    </nav>
+    <section id="panel-fri" class="day-panel" aria-label="Friday evening events">
+      <div class="date-head"><div class="small">FRIDAY EVENING</div><h3>02.Oct.2026</h3><p>Events beginning at 17:00 or later, including nightlife.</p></div>
+      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
+      <div id="fri-chapters"></div>
+    </section>
+    <section id="panel-sat" class="day-panel" aria-label="Saturday events">
+      <div class="date-head"><div class="small">SATURDAY</div><h3>03.Oct.2026</h3><p>Daytime, evening and late-night plans.</p></div>
+      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
+      <div id="sat-chapters"></div>
+    </section>
+    <section id="panel-sun" class="day-panel" aria-label="Sunday events">
+      <div class="date-head"><div class="small">SUNDAY</div><h3>04.Oct.2026</h3><p>Daytime, evening and late-night plans.</p></div>
+      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
+      <div id="sun-chapters"></div>
+    </section>
+    <p class="disclaimer">Always verify dates, times, prices, availability and reservations directly with the event organiser, venue or bar before going. ZUPPIE BASEL is an independent guide, not an event organiser or ticket seller.</p>
+  </main>
+  <footer>
+    <div class="footer-brand">ZUPPIE BASEL ✦</div>
+    <p>Big kids make plans too. · Basel city</p>
+    <div class="legal"><details><summary>Terms &amp; information</summary><p>Information is provided for planning purposes. Third-party events and offers may change without notice. Official links are provided for convenience; ZUPPIE BASEL does not control external websites, reservations or purchases.</p></details></div>
+    <p>© 2026 ZUPPIE BASEL</p>
+  </footer>
+</div>
+<script>
+  /* Add ONLY the supplied locked dataset here. The empty arrays are deliberate. Each
+     entry: { title, venue, time, remark, url }. Never populate from assumptions. */
+  const LOCKED_EVENTS = {
+    fri: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]},
+    sat: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]},
+    sun: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]}
+  };
+  const CHAPTERS = [
+    ['exhibitions','🖼️','EXHIBITIONS',''],
+    ['theatre','🎭','THEATRE',''],
+    ['music','🎵','LIVE MUSIC',''],
+    ['cinema','🎬','CINEMA',''],
+    ['culture','✨','CULTURAL ACTIVITIES',''],
+    ['nightlife','🪩','NIGHTLIFE',''],
+    ['flohmi','🛍️','FLOHMI / FLEA MARKETS','flohmi'],
+    ['happyhour','🍸','HAPPY HOUR','happy-hour'],
+    ['picks','💗','ZUPPIE PICKS','picks']
+  ];
+  function addText(node, tag, value, cls) {const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;node.appendChild(el);return el}
+  function render() {
+    ['fri','sat','sun'].forEach(day=>{
+      const root=document.getElementById(day+'-chapters');const nav=addText(root,'nav','','category-nav');nav.setAttribute('aria-label','Event chapters');
+      CHAPTERS.forEach(([key,emoji,label,cls])=>{
+        const a=addText(nav,'a',label,'');a.href='#'+day+'-'+key;
+      });
+      CHAPTERS.forEach(([key,emoji,label,cls])=>{
+        const section=addText(root,'section','','group '+cls);section.id=day+'-'+key;
+        const heading=addText(section,'h4','','');addText(heading,'span',emoji,'symbol');addText(heading,'span',label,'');addText(heading,'span','✦','spark');
+        const entries=LOCKED_EVENTS[day][key];
+        if(!entries.length){addText(section,'div','No locked entries supplied.','empty');return}
+        const list=addText(section,'div','','event-list');
+        entries.forEach(entry=>{
+          const item=addText(list,'article','','event');
+          if(!/^https:\/\//.test(entry.url || '')) {addText(item,'strong',entry.title);return}
+          const link=addText(item,'a',entry.title+' ↗');link.href=entry.url;link.target='_blank';link.rel='noopener noreferrer';
+          const dl=addText(item,'dl','');[['Venue',entry.venue],['Time',entry.time]].forEach(([k,v])=>{if(v){addText(dl,'dt',k);addText(dl,'dd',v)}});
+          if(entry.remark)addText(item,'p',entry.remark,'remark');
+        });
+      });
+    });
+  }
+  render();
+</script>
+</body>
+</html>
