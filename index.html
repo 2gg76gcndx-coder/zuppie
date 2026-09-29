@@ -1,143 +1,748 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#18152b">
-  <title>ZUPPIE BASEL — Big kids make plans too.</title>
-  <meta name="description" content="Your Friday evening and weekend guide to exhibitions, theatre, live music, cinema, culture, nightlife, flea markets and happy hours in Basel city.">
-  <link rel="canonical" href="https://zuppie.ch/">
-  <!-- Supply logo.png in the root of your Zuppie GitHub Pages repository. No logo is embedded here. -->
-  <link rel="icon" type="image/png" href="./logo.png">
-  <link rel="apple-touch-icon" href="./logo.png">
-  <meta property="og:title" content="ZUPPIE BASEL — Big kids make plans too.">
-  <meta property="og:description" content="Friday evening and weekend plans for grown-ups in Basel city.">
-  <style>
-    :root{color-scheme:light;--ink:#241c35;--muted:#726a83;--purple:#6540b9;--magenta:#e33e89;--coral:#f58b74;--line:#e9e2f2;--surface:#fff;--wash:#f7f3fc}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;background:#eae5f4}
-    body{margin:0;color:var(--ink);background:#eae5f4;font:15px/1.45 -apple-system,BlinkMacSystemFont,"Avenir Next",Inter,"Segoe UI",sans-serif}
-    button,input{font:inherit}.app{max-width:430px;min-height:100vh;margin:auto;background:#fbf9fd;box-shadow:0 16px 50px #27174716;overflow:hidden}
-    .hero{position:relative;padding:26px 22px 24px;color:white;background:radial-gradient(circle at 94% 4%,#fdafbf 0,transparent 38%),linear-gradient(135deg,#1e1a38 0%,#59308d 60%,#b93f83 100%);overflow:hidden}
-    .hero:after{content:"✦";position:absolute;right:24px;bottom:12px;font-size:67px;color:#ffdf8e65;transform:rotate(22deg)}
-    .logo{display:block;width:118px;max-height:105px;object-fit:contain;position:relative;z-index:1;margin-bottom:14px}
-    .brand-fallback{font-size:31px;font-weight:950;letter-spacing:-.06em;margin-bottom:14px}
-    .eyebrow{font-size:11px;font-weight:900;letter-spacing:.19em;text-transform:uppercase;color:#f9cced}
-    h1{font-size:35px;letter-spacing:-.05em;line-height:1.04;margin:9px 0 11px;max-width:320px}
-    .hero p{max-width:300px;color:#fbe7f8;font-size:14px;margin:0}
-    .scope{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px;position:relative;z-index:1}.scope span{font-size:11px;font-weight:800;background:#ffffff25;border:1px solid #ffffff35;border-radius:30px;padding:6px 9px}
-    main{padding:15px 13px 24px}.section-intro{margin:7px 4px 14px}.section-intro b{font-size:13px;letter-spacing:.13em;color:var(--magenta)}
-    .section-intro h2{font-size:27px;letter-spacing:-.045em;line-height:1.1;margin:6px 0}.section-intro p{margin:0;color:var(--muted);font-size:13px}
-    .day-radio{position:absolute;opacity:0;width:1px;height:1px}.day-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:15px;background:#efe9f6;padding:6px;border-radius:17px}
-    .day-tabs label{display:grid;place-items:center;text-align:center;min-height:62px;padding:8px 2px;cursor:pointer;background:#fff;border-radius:12px;border:1px solid #e5daef;font-size:14px;font-weight:900}
-    .day-tabs small{font-size:10px;color:var(--muted);font-weight:750;display:block}
-    #fri:checked~.day-tabs label[for=fri],#sat:checked~.day-tabs label[for=sat],#sun:checked~.day-tabs label[for=sun]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px #25143a23}
-    #fri:checked~.day-tabs label[for=fri] small,#sat:checked~.day-tabs label[for=sat] small,#sun:checked~.day-tabs label[for=sun] small{color:#f2c8e9}
-    .day-panel{display:none}#fri:checked~#panel-fri,#sat:checked~#panel-sat,#sun:checked~#panel-sun{display:block}
-    .date-head{border-radius:20px;padding:17px 18px;background:linear-gradient(100deg,#fce6ef,#eee3fb);margin:0 0 14px}
-    .date-head .small{font-size:11px;font-weight:900;letter-spacing:.17em;color:#9a4386}.date-head h3{font-size:25px;line-height:1.08;letter-spacing:-.04em;margin:6px 0}.date-head p{font-size:12px;color:#705a79;margin:0}
-    .notice{background:#fffbef;border:1px solid #f4e3bb;border-radius:15px;padding:13px 14px;font-size:12px;line-height:1.48;color:#65543a;margin:0 0 15px}
-    .category-nav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.category-nav a{color:#60438c;text-decoration:none;font-size:11px;font-weight:800;padding:7px 9px;background:#efe8f9;border-radius:20px}
-    .group{margin:0 0 14px;scroll-margin-top:15px}.group h4{display:flex;align-items:center;gap:9px;margin:0 0 7px;padding:11px 12px;background:#eee7f9;border-radius:13px;font-size:15px;line-height:1.12;letter-spacing:-.01em}
-    .group h4 .symbol{font-size:20px}.group h4 .spark{margin-left:auto;color:#dc4993}
-    .group.flohmi h4{background:#ffeddf}.group.happy-hour h4{background:#ffdee9}.group.picks h4{background:#e3e6fc}
-    .empty{border:1px dashed #d8cae6;background:#fff;border-radius:13px;color:#857a91;font-size:12px;padding:12px 13px}
-    .event-list{display:grid;gap:8px}.event{display:grid;grid-template-columns:1fr;gap:7px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px;box-shadow:0 3px 9px #1a12350a}
-    .event a{font-size:15px;font-weight:850;color:#4c258c;text-decoration:none}.event a:hover{text-decoration:underline}
-    .event dl{display:grid;grid-template-columns:59px 1fr;gap:3px 7px;margin:0;font-size:12px}.event dt{font-weight:800;color:#92869f}.event dd{margin:0;font-weight:650}
-    .event .remark{font-size:12px;color:#6f647a;margin:0}.event .external{font-size:12px}
-    .disclaimer{font-size:11px;text-align:center;color:#867c91;padding:4px 7px;line-height:1.5;margin:20px 0 0}
-    footer{background:#211b35;color:#eee4f4;padding:21px;text-align:center}footer .footer-brand{font-size:19px;font-weight:950;letter-spacing:-.035em}footer p{font-size:11px;color:#c5b9d6;line-height:1.5;margin:8px 0 0}
-    footer a{color:#f1c5df}.legal{margin-top:14px;border-top:1px solid #544861;padding-top:11px;text-align:left}.legal summary{cursor:pointer;font-weight:800;font-size:12px}.legal p{margin:7px 0}
-    @media(max-width:360px){.hero{padding:20px 16px}h1{font-size:31px}.day-tabs label{font-size:12px}.date-head h3{font-size:23px}}
-  </style>
-</head>
-<body>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#fff4f2"/>
+<title>ZUPPIE BASEL — Big Kids Make Plans Too</title>
+<meta name="description" content="Your Friday-evening and weekend guide to exhibitions, theatre, live music, cinema, culture, nightlife, Flohmi and happy hours in Basel city."/>
+<meta property="og:title" content="ZUPPIE BASEL — Big Kids Make Plans Too"/>
+<meta property="og:description" content="Discover what is on in Basel this Friday evening, Saturday and Sunday."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://zuppie.ch/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://zuppie.ch/"/>
+<!-- Upload logo.png next to index.html in the ZUPPIE GitHub Pages repository. -->
+<link rel="icon" type="image/png" href="./logo.png"/>
+<link rel="apple-touch-icon" href="./logo.png"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZUPPIE BASEL","url":"https://zuppie.ch/","logo":"https://zuppie.ch/logo.png","description":"Adult-oriented Basel city Friday evening and weekend event guide."}</script>
+<style>
+
+:root{
+ --ink:#083b59; --deep:#06456e; --blue:#0d7ddb; --sky:#eaf8ff; --line:#d8ebf4;
+ --muted:#6e8390; --pink:#ff4761; --yellow:#ffe980;
+}
+*{box-sizing:border-box}
+html{background:#eaf8ff;scroll-behavior:smooth}
+body{margin:0;background:#eaf8ff;color:var(--ink);font-family:"Arial Rounded MT Bold","Avenir Next Rounded","SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Trebuchet MS",Arial,sans-serif}
+.app{width:min(100%,430px);margin:auto;min-height:100vh;background:linear-gradient(180deg,#dff5ff,#f8fcff 42%,#eaf8ff);overflow:hidden;box-shadow:0 18px 55px rgba(7,59,82,.10)}
+
+/* Exact supplied hero graphic */
+.hero-art{width:100%;display:block;aspect-ratio:3/2;object-fit:cover;object-position:center center}
+
+/* hamburger overlay */
+.menu-toggle{position:absolute;opacity:0;pointer-events:none}
+.menu-button{position:absolute;top:15px;right:16px;width:44px;height:44px;z-index:10;cursor:pointer;border-radius:50%}
+.nav-pop{display:none;position:absolute;right:16px;top:62px;z-index:20;background:white;border-radius:16px;padding:8px;box-shadow:0 10px 30px rgba(7,59,82,.18);width:190px}
+#menu-toggle:checked~.nav-pop{display:grid;gap:7px}
+.nav-pop label{padding:11px;border-radius:12px;background:#eef8fc;font-weight:900;cursor:pointer}
+
+/* main tabs */
+.radio{position:absolute;opacity:0;pointer-events:none}
+.panels>.panel{display:none}
+#tab-events:checked~.panels>#events-panel{display:block}
+#tab-deals:checked~.panels>#deals-panel{display:block}
+
+.panel{padding:0 12px 20px}
+.main-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 0 12px}
+.main-tabs label{min-height:54px;display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:18px;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 6px 16px rgba(7,59,82,.05)}
+#tab-events:checked~.panels>#events-panel .main-tabs label[for="tab-events"]{background:linear-gradient(135deg,#0e80df,#0b73c9);color:#fff}
+#tab-deals:checked~.panels>#deals-panel .main-tabs label[for="tab-deals"]{background:linear-gradient(135deg,#0a456d,#083b5e);color:#fff}
+
+/* reference hero cards */
+.reference-hero{border-radius:28px;box-shadow:0 10px 26px rgba(7,59,82,.09)}
+.events-title-card{background:#fff;border:1px solid var(--line);padding:20px 46px;margin:0 0 12px;text-align:center;position:relative}
+.events-title-card h1{margin:0;font-size:28px;line-height:1.02;letter-spacing:-.035em}
+.events-title-card .d{position:absolute;font-size:28px;font-weight:900}
+.events-title-card .d1{left:15px;top:14px} .events-title-card .d2{right:16px;top:14px;color:#ff5b72}
+.events-title-card .d3{left:17px;bottom:10px;color:#2fa9df} .events-title-card .d4{right:16px;bottom:8px;color:#ffc624}
+
+.deals-title-card{background:linear-gradient(135deg,#06466f,#063d61);color:#fff;padding:23px 18px 20px;margin-bottom:16px;text-align:center}
+.deals-title-card h1{font-size:37px;line-height:1;margin:0 0 17px;letter-spacing:-.04em}
+.hero-pills{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-pills span{background:#fff;color:var(--ink);border-radius:999px;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900}
+
+/* events */
+.day-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#f7fcff;border:1px solid var(--line);border-radius:22px;padding:8px;margin-bottom:12px}
+.day-tabs label{min-height:52px;display:flex;align-items:center;justify-content:center;border-radius:16px;background:#fff;border:1px solid var(--line);font-size:16px;font-weight:900;cursor:pointer}
+.day-panel{display:none}
+#day-sat:checked~.day-tabs label[for="day-sat"],#day-sun:checked~.day-tabs label[for="day-sun"]{background:linear-gradient(135deg,#0e80df,#0a73cb);color:white}
+#day-sat:checked~.day-tabs~#sat-panel{display:block}
+#day-sun:checked~.day-tabs~#sun-panel{display:block}
+.date-title{font-size:28px;line-height:1.03;margin:12px 5px 18px;letter-spacing:-.035em}
+.event-group{margin-bottom:18px}
+.event-category{background:linear-gradient(90deg,#d9f2fc,#b8e6f7);border-radius:15px;padding:11px 13px;font-size:16px;font-weight:900}
+.event-table{border:1px solid #d6e9f2;border-radius:16px;overflow:hidden;margin-top:8px;background:#fff}
+.event-row{display:grid;grid-template-columns:38% 62%;min-height:118px}
+.event-row+.event-row{border-top:1px solid #d6e9f2}
+.event-main{background:linear-gradient(180deg,#e8f8ff,#d8f1fc);padding:13px 12px;display:flex;flex-direction:column;justify-content:space-between}
+.event-name,.event-name a{font-size:16px;line-height:1.2;font-weight:900;text-decoration:none;overflow-wrap:anywhere}
+.event-art{display:none}
+.event-thumb{width:100%;height:64px;display:block;object-fit:cover;border-radius:12px;margin-top:10px;border:1px solid rgba(8,59,89,.08);box-shadow:0 4px 10px rgba(7,59,82,.08);background:#eef8fd}
+.event-meta{padding:13px 12px;background:#fff}
+.event-meta div{display:grid;grid-template-columns:66px 1fr;gap:8px;font-size:14px;line-height:1.25;margin-bottom:6px}
+.event-meta span{color:#718793;font-weight:900}
+.event-meta strong{font-weight:900;overflow-wrap:anywhere}
+.no-picks{margin-top:8px;min-height:74px;border-radius:17px;background:linear-gradient(135deg,#edf8ed,#e2f4e6);display:flex;align-items:center;justify-content:center;gap:16px;color:#6f7f76}
+
+/* deals reference */
+.week-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:19px 18px 17px;margin-bottom:14px;box-shadow:0 8px 20px rgba(7,59,82,.05)}
+.week-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.week-kicker{font-size:13px;font-weight:900;letter-spacing:.15em;color:#1e9ed6;margin-bottom:7px}
+.week-date{font-size:29px;line-height:1;font-weight:900;letter-spacing:-.035em}
+.deal-count{background:#fff0a8;color:#6b5200;border-radius:18px;padding:10px 13px;font-size:15px;font-weight:900}
+.note{border-top:1px solid #e6eef3;margin-top:17px;padding-top:16px;display:flex;gap:10px;color:#718793;font-size:15px;line-height:1.35;font-weight:700}
+.category-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;background:linear-gradient(90deg,#eaf8ff,#dff4fd);border-radius:20px;padding:15px 16px;font-size:20px;margin-bottom:8px}
+.deal-list{display:grid;gap:8px}
+.deal-card{display:grid;grid-template-columns:86px minmax(0,1fr) 96px;gap:11px;align-items:center;min-height:92px;background:#fff;border:1px solid #e3edf2;border-radius:18px;padding:8px 10px 8px 8px;box-shadow:0 4px 12px rgba(7,59,82,.035)}
+.deal-photo{width:78px;height:78px;border-radius:15px;overflow:hidden;background:#eaf8ff;display:grid;place-items:center;text-decoration:none}
+.deal-photo img{width:100%;height:100%;object-fit:contain;background:#f8fcff}
+.prod-illustration{font-size:42px}
+.deal-name{display:block;text-decoration:none;font-size:15px;line-height:1.22;font-weight:900}
+.deal-name span{color:#0d9ed8}
+.retailer{margin-top:6px;color:#718793;font-size:13px;font-weight:800}
+.price-stack{display:flex;flex-direction:column;align-items:flex-end;gap:6px;white-space:nowrap}
+.discount{background:#ffe7eb;color:#e42d45;border-radius:999px;padding:8px 10px;font-size:13px;font-weight:900}
+.old{color:#8c99a2;text-decoration:line-through;font-size:13px;font-weight:800}
+.new{font-size:17px;font-weight:900;color:#0b3c5a}
+.more-deals{margin-top:18px}
+.more-deals summary{list-style:none;cursor:pointer;border:2px solid #4db8e9;border-radius:999px;min-height:58px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#09659d}
+.more-deals summary::-webkit-details-marker{display:none}
+.more-deals[open] summary{margin-bottom:12px}
+
+/* Exact supplied bottom graphic */
+.footer-art{width:calc(100% + 24px);margin:12px -12px 0;display:block;aspect-ratio:3/1;object-fit:cover}
+
+/* footer */
+.site-footer{padding:16px 12px 24px}
+.contact{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:13px;text-decoration:none;margin-bottom:10px}
+.ig{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);display:grid;place-items:center;color:#fff;font-size:20px}
+.contact small{display:block;color:#718793;margin-top:2px}
+.legal{background:#fff;border:1px solid var(--line);border-radius:20px;padding:0 12px}
+.legal details+details{border-top:1px solid #e7eef2}
+.legal summary{padding:13px 2px;list-style:none;cursor:pointer;font-weight:900;position:relative}
+.legal summary::after{content:"+";position:absolute;right:4px} .legal details[open] summary::after{content:"−"}
+.legal div{padding:0 2px 13px;color:#687f8c;font-size:12px;line-height:1.5}
+.copyright{text-align:center;color:#8a9aa3;font-size:11px;margin:12px 0 0}
+
+/* Family Deals disclaimer */
+#deals-panel .deals-disclaimer{
+  margin:14px 6px 2px;
+  text-align:center;
+  color:#718793;
+  font-size:12px;
+  line-height:1.4;
+  font-weight:700;
+  font-style:italic;
+}
+
+@media(max-width:390px){
+ .events-title-card h1{font-size:25px}
+ .main-tabs label{font-size:15px;min-height:52px}
+ .date-title{font-size:24px}
+ .event-category{font-size:14px}
+ .event-row{grid-template-columns:40% 60%}
+ .event-name,.event-name a{font-size:15px}
+ .event-meta div{grid-template-columns:58px 1fr;font-size:13px}
+ .deals-title-card h1{font-size:34px}
+ .week-date{font-size:27px}
+ .category-head{font-size:18px}
+ .deal-card{grid-template-columns:76px minmax(0,1fr) 88px;gap:9px;min-height:86px}
+ .deal-photo{width:68px;height:68px}
+ .deal-name{font-size:14px}
+ .retailer{font-size:12px}
+ .discount{font-size:12px;padding:7px 9px}
+ .old{font-size:12px} .new{font-size:16px}
+}
+
+/* Event-specific visual thumbnails */
+.event-main{gap:8px}
+@media (max-width:360px){.event-thumb{height:58px}.event-row{grid-template-columns:40% 60%}}
+
+
+/* ===== MODERN PHOTOGRAPHIC EVENT CARDS ===== */
+html,body{margin:0!important;padding:0!important}
+.app{margin:0 auto!important;padding-top:0!important}
+.hero-art{display:block!important;width:100%!important;margin-top:0!important;border-radius:0!important}
+
+/* Rounded typography requested for days and event names */
+.date-title{
+  font-family:"Arial Rounded MT Bold","Avenir Next Rounded","SF Pro Rounded","Trebuchet MS",Arial,sans-serif!important;
+  font-size:20.8px!important;
+  font-weight:900!important;
+  line-height:1.02!important;
+}
+.day-tabs label{
+  font-family:"Arial Rounded MT Bold","Avenir Next Rounded","SF Pro Rounded","Trebuchet MS",Arial,sans-serif!important;
+  font-size:13px!important;
+  font-weight:900!important;
+  letter-spacing:.01em!important;
+}
+.event-name,.event-name a{
+  font-family:"Arial Rounded MT Bold","Avenir Next Rounded","SF Pro Rounded","Trebuchet MS",Arial,sans-serif!important;
+  font-weight:900!important;
+}
+
+/* Stock-photo cells: edge-to-edge, no blue/clip-art background */
+.event-thumb-cell{
+  position:relative!important;
+  overflow:hidden!important;
+  background:#f4f7f9!important;
+  isolation:isolate!important;
+}
+.event-thumb-cell::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(8,59,89,.035);
+  z-index:2;
+}
+.event-stock-photo{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  background:#f4f7f9!important;
+  filter:saturate(.88) contrast(1.04) brightness(.99)!important;
+  transform:scale(1.01);
+  transition:transform .25s ease,filter .25s ease;
+}
+.event-row:hover .event-stock-photo{
+  transform:scale(1.045);
+  filter:saturate(.98) contrast(1.04) brightness(1.01)!important;
+}
+
+/* Cleaner card finish */
+.event-row{
+  background:#fff!important;
+  border-color:rgba(11,69,104,.09)!important;
+  box-shadow:0 5px 14px rgba(14,61,88,.045)!important;
+}
+.event-main,.event-meta{background:#fff!important}
+.events-footer-art{
+  display:block!important;
+  width:calc(100% + 24px)!important;
+  max-width:none!important;
+  margin-top:10px!important;
+  margin-left:-12px!important;
+  margin-right:-12px!important;
+}
+@media(max-width:390px){
+  .events-footer-art{
+    width:calc(100% + 16px)!important;
+    margin-left:-8px!important;
+    margin-right:-8px!important;
+  }
+}
+
+@media(max-width:390px){
+  .date-title{font-size:19px!important}
+  .day-tabs label{font-size:12px!important}
+}
+
+
+/* ===== MODERN STOCK-PHOTO EVENT CARDS ===== */
+.event-row{
+  display:grid !important;
+  grid-template-columns:27% 29% minmax(0,44%) !important;
+  align-items:stretch !important;
+  min-height:96px !important;
+  background:#fff !important;
+  border:1px solid rgba(11,69,104,.09) !important;
+  box-shadow:0 5px 16px rgba(14,61,88,.045) !important;
+  overflow:hidden !important;
+}
+.event-photo-cell{
+  min-width:0 !important;
+  min-height:96px !important;
+  padding:7px 6px 7px 7px !important;
+  position:relative !important;
+  background:#fff !important;
+  overflow:visible !important;
+}
+.event-photo-link{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:82px !important;
+  position:relative !important;
+  border-radius:13px !important;
+  overflow:hidden !important;
+  box-shadow:0 6px 15px rgba(9,45,69,.13) !important;
+  background:#eef2f4 !important;
+}
+.event-photo-link::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(2,30,48,.08));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);
+}
+.event-stock-photo{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:#eef2f4 !important;
+  filter:saturate(.94) contrast(1.035) brightness(.985) !important;
+  transform:scale(1.015);
+  transition:transform .28s ease,filter .28s ease;
+}
+.event-row:hover .event-stock-photo{
+  transform:scale(1.055);
+  filter:saturate(1.02) contrast(1.04) brightness(1) !important;
+}
+.event-main{
+  min-width:0 !important;
+  display:flex !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  padding:10px 9px !important;
+  background:#fff !important;
+  border-left:1px solid #edf3f7 !important;
+}
+.event-name,
+.event-name a{
+  font-family:"Arial Rounded MT Bold", Arial, Helvetica, sans-serif !important;
+  font-stretch:normal !important;
+  font-weight:700 !important;
+  letter-spacing:-0.012em !important;
+  font-size:14.5px !important;
+  line-height:1.13 !important;
+  color:#0a4163 !important;
+  text-decoration:none !important;
+  overflow-wrap:anywhere !important;
+  word-break:normal !important;
+}
+.event-name a:hover,
+.event-name a:focus{
+  text-decoration:underline !important;
+  text-decoration-thickness:1.5px !important;
+  text-underline-offset:2px !important;
+}
+.event-meta{
+  min-width:0 !important;
+  padding:9px 8px !important;
+  background:#fff !important;
+  border-left:1px solid #edf3f7 !important;
+}
+.event-meta div{
+  grid-template-columns:47px minmax(0,1fr) !important;
+  gap:5px !important;
+  margin-bottom:3px !important;
+  font-size:11.8px !important;
+  line-height:1.15 !important;
+}
+@media(max-width:390px){
+  .event-row{
+    grid-template-columns:26% 31% minmax(0,43%) !important;
+    min-height:90px !important;
+  }
+  .event-photo-cell{min-height:90px !important;padding:6px 5px 6px 6px !important;}
+  .event-photo-link{min-height:78px !important;border-radius:12px !important;}
+  .event-main{padding:8px 7px !important;}
+  .event-name,.event-name a{
+    font-family:"Arial Rounded MT Bold", Arial, Helvetica, sans-serif !important;
+    font-size:13.2px !important;
+    line-height:1.11 !important;
+    letter-spacing:-0.01em !important;
+  }
+  .event-meta{padding:8px 6px !important;}
+  .event-meta div{grid-template-columns:42px minmax(0,1fr) !important;font-size:11.2px !important;gap:4px !important;}
+}
+
+
+/* ===== FINAL Weekend Plans date + plan-count alignment ===== */
+.plans-date-line{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:10px !important;
+  margin:7px 3px 11px !important;
+  width:auto !important;
+  position:relative !important;
+}
+.plans-date-line .date-title{
+  margin:0 !important;
+  flex:1 1 auto !important;
+  min-width:0 !important;
+}
+.plan-count-pill{
+  position:static !important;
+  inset:auto !important;
+  transform:none !important;
+  flex:0 0 auto !important;
+  white-space:nowrap !important;
+  background:#fff0a8 !important;
+  color:#6b5200 !important;
+  border-radius:16px !important;
+  padding:8px 11px !important;
+  font-size:13px !important;
+  line-height:1 !important;
+  font-weight:900 !important;
+  margin:0 !important;
+}
+@media(max-width:390px){
+  .plans-date-line{
+    gap:7px !important;
+  }
+  .plan-count-pill{
+    padding:7px 9px !important;
+    font-size:12px !important;
+  }
+}
+
+
+/* ZUPPIE design system: same compact GUGU architecture, distinct grown-up palette. */
+:root{--ink:#40233f;--deep:#542c55;--blue:#a04779;--sky:#fff4f2;--line:#ecdbe4;--muted:#856b7e;--pink:#ef7695;--yellow:#ffc89a;--lavender:#f6e6f1;--wine:#632d54}
+html,body{background:#fff4f2!important;color:var(--ink)!important}
+.app{width:min(100%,430px);background:linear-gradient(180deg,#fbe5e7 0%,#fffaf7 41%,#fff2f1 100%);box-shadow:0 18px 55px rgba(73,28,66,.12)}
+.hero{position:relative;aspect-ratio:3/2;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 77% 24%,#ffe3c8 0 8%,transparent 28%),radial-gradient(circle at 17% 78%,#f4a9c4 0 8%,transparent 31%),linear-gradient(128deg,#5f315c,#a65387 58%,#ee8da4);}
+.hero:before{content:"✳";position:absolute;left:22px;top:16px;font-size:40px;color:#ffcfaa;transform:rotate(-14deg)}
+.hero:after{content:"✦";position:absolute;right:29px;bottom:20px;font-size:40px;color:#ffe6e0}
+.hero-inner{text-align:center;z-index:1;padding:20px 52px 14px;color:white;width:100%}
+.hero-logo{display:block;width:100%;height:150px;object-fit:contain;filter:drop-shadow(0 5px 15px rgba(54,20,47,.12))}
+.logo-fallback{display:none;font-weight:900;font-size:45px;letter-spacing:-.07em;color:#fff}
+.hero-tagline{display:block;color:#fff0e5;font-weight:900;font-size:13px;letter-spacing:.13em;line-height:1.3;margin-top:5px}
+.hero-sub{font-size:12px;color:#fff5f3;letter-spacing:.035em;margin:8px 0 0;font-weight:800}
+.menu-button{position:absolute;top:14px;right:16px;width:42px;height:42px;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;color:white;background:rgba(64,35,63,.25);backdrop-filter:blur(5px);font-size:23px;font-weight:900;z-index:10}
+.nav-pop{right:14px;top:62px;width:220px;border:1px solid var(--line)}
+.nav-pop label{background:#faeef4;color:#542c55}
+#menu-toggle:checked~.nav-pop{display:grid}
+.panel{padding:0 10px 14px!important}
+#tab-about:checked~.panels>#about-panel{display:block}
+.main-tabs{gap:6px;margin:7px 0 8px;grid-template-columns:1fr 1fr}
+.main-tabs label{min-height:45px;padding:7px;line-height:1.05;text-align:center;color:#532d50;border-color:var(--line);background:white;font-size:15px;display:flex;gap:7px}
+.main-tabs .tab-icon{font-size:20px;line-height:1}
+#tab-events:checked~.panels>#events-panel .main-tabs label[for="tab-events"],
+#tab-about:checked~.panels>#about-panel .main-tabs label[for="tab-about"]{background:linear-gradient(135deg,#8f4274,#663257);color:white;border-color:#663257}
+.day-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:5px;margin-bottom:8px;background:#f9eaf0;border-color:#ead1df}
+.day-tabs label{min-height:43px;padding:5px 3px;font-size:13px;font-weight:900;color:#633858;border-color:#ead4e0;text-align:center}
+#day-fri:checked~.day-tabs label[for="day-fri"],#day-sat:checked~.day-tabs label[for="day-sat"],#day-sun:checked~.day-tabs label[for="day-sun"]{background:linear-gradient(135deg,#a4477d,#7e3668);color:#fff;border-color:#7e3668}
+#day-fri:checked~.day-tabs~#fri-panel{display:block}
+#day-sat:checked~.day-tabs~#sat-panel{display:block}
+#day-sun:checked~.day-tabs~#sun-panel{display:block}
+.date-title{color:#542c55!important;font-size:20.8px!important;line-height:1.02;margin:7px 3px 2px!important;letter-spacing:-.035em!important}
+.plans-date-line{margin:9px 2px 3px!important;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.plan-count-pill{border-radius:999px;background:#f5d2de;color:#673353;padding:8px 10px;font-size:11px;line-height:1;font-weight:900;white-space:nowrap}
+.day-note{font-size:12px;color:#9a7189;margin:1px 4px 12px;font-weight:800}
+.event-group{margin-bottom:11px}
+.event-category{background:linear-gradient(90deg,#f6d9e5,#fbe3db)!important;color:#552c52!important;font-size:16px!important;line-height:1.08!important;padding:10px 44px 10px 12px!important;position:relative}
+.event-category::before{content:"✦";position:absolute;right:13px;top:50%;transform:translateY(-52%);font-size:24px;color:#d16d95}
+.event-category::after{display:none!important}
+.event-table{border:1px solid #eddfe5!important;background:#fff!important;margin-top:5px;border-radius:16px}
+.event-row{grid-template-columns:27% 29% minmax(0,44%)!important;border-color:rgba(88,39,73,.12)!important;box-shadow:0 5px 16px rgba(72,28,56,.055)!important}
+.event-photo-link{background:#f9edf1!important;box-shadow:0 5px 14px rgba(82,38,66,.14)!important}
+.event-main{border-left:1px solid #f1e5eb!important}
+.event-meta{border-left:1px solid #f1e5eb!important}
+.event-name,.event-name a{color:#592d52!important}
+.event-meta span{color:#9a7a8e!important}
+.empty-category{margin:0;padding:16px 13px;font-size:13px;font-weight:700;color:#9a8192;background:#fffafc}
+.events-disclaimer{margin:15px 7px 8px;color:#94798a;text-align:center;font-size:12px;line-height:1.42;font-style:italic;font-weight:700}
+.about-heading{margin:6px 0 11px;padding:17px 14px;border:1px solid #eddae3;border-radius:24px;background:white;text-align:center}
+.about-heading h1{font-size:27px;line-height:1.05;color:#5f315b;margin:0 0 8px}
+.about-heading p{margin:0;color:#a2597c;font-weight:800;font-size:14px}
+.about-card{background:white;border:1px solid #eddfe7;border-radius:18px;margin:8px 0;padding:14px;font-size:15px;line-height:1.45;color:#633e5d}
+.about-card h2{color:#603355;margin:0 0 6px;font-size:19px}
+.about-card p{margin:0 0 8px}.about-card p:last-child{margin-bottom:0}
+.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0}
+.about-grid span{padding:10px 6px;text-align:center;border-radius:14px;background:#fceaf0;font-size:13px;font-weight:900;color:#7e3a6a}
+.site-footer{padding:12px 10px 22px}
+.contact{border-color:#ecd8e3;color:#572f53}
+.ig{background:linear-gradient(135deg,#80367e,#ec6c9a,#ffae95)}
+.contact small{color:#97788b}
+.legal{border-color:#ecdae5;color:#573452}.legal div{color:#795b70}.legal a{color:#a14879}
+.copyright{color:#a68c99}
+/* Intro artwork uses exactly the original 3:2 header footprint, and the
+   original section/card sizing remains available for real future event rows. */
+@media(max-width:390px){
+ .hero-logo{height:132px}.hero-tagline{font-size:11px}
+ .day-tabs label{font-size:11.5px!important;min-height:40px}
+ .date-title{font-size:18px!important}
+ .plan-count-pill{font-size:10px;padding:7px 8px}
+ .event-category{font-size:14.5px!important}
+ .event-row{grid-template-columns:26% 31% minmax(0,43%)!important}
+}
+
+</style>
+<style id="zuppie-locked-event-details">
+.event-photo-link{background:#f4e7ef!important}
+.event-art-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 74% 18%,rgba(255,255,255,.28),transparent 32%),linear-gradient(143deg,var(--thumb-low),var(--thumb-high));color:#fff}
+.event-art-placeholder span{font-size:34px;z-index:1;filter:drop-shadow(0 3px 4px rgba(30,13,35,.15))}
+.event-art-placeholder i{position:absolute;top:4px;right:8px;color:#ffe4d4;font-size:19px;font-style:normal}
+.event-row{min-height:118px!important}
+.event-photo-cell{min-height:118px!important}
+.event-photo-link{min-height:104px!important}
+.event-meta{padding:10px 7px!important}
+.event-meta div{display:block!important;margin:0 0 7px!important;font-size:12px!important;line-height:1.27!important}
+.event-meta span{display:block;margin-bottom:1px;font-size:10.5px;line-height:1.15;text-transform:uppercase;letter-spacing:.025em}
+.event-meta strong{display:block;font-weight:750!important;overflow-wrap:break-word!important}
+.event-main{padding:10px 8px!important}
+.event-name a{font-size:14px!important;line-height:1.22!important}
+.pick-note{display:block;margin-top:7px;color:#a3527d;font-size:10px;line-height:1.2;font-weight:800}
+.event-category{font-size:15.5px!important}
+@media(max-width:390px){.event-row{grid-template-columns:24% 32% minmax(0,44%)!important}.event-photo-cell{padding:5px!important}.event-photo-link{min-height:108px!important}.event-meta div{font-size:11.3px!important}.event-main{padding:8px 6px!important}.event-name a{font-size:12.8px!important}.event-category{font-size:14px!important}.event-art-placeholder span{font-size:30px}}
+</style>
+</head><body>
 <div class="app">
-  <header class="hero">
-    <img class="logo" src="./logo.png" alt="ZUPPIE BASEL logo" onerror="this.style.display='none';document.getElementById('brand-fallback').hidden=false">
-    <div id="brand-fallback" class="brand-fallback" hidden>ZUPPIE BASEL ✦</div>
-    <div class="eyebrow">Basel city · Plans for grown-ups</div>
-    <h1>Big kids make plans too.</h1>
-    <p>Culture, music, markets, good drinks and those nights worth going out for.</p>
-    <div class="scope"><span>Friday evening</span><span>Saturday</span><span>Sunday</span><span>Basel municipality only</span></div>
-  </header>
-  <main>
-    <div class="section-intro"><b>✦ ZUPPIE PLANS</b><h2>This weekend in Basel</h2><p>Tap a day, explore its chapters, and open organisers’ official listings for details.</p></div>
-    <input class="day-radio" type="radio" name="day" id="fri" checked>
-    <input class="day-radio" type="radio" name="day" id="sat">
-    <input class="day-radio" type="radio" name="day" id="sun">
-    <nav class="day-tabs" aria-label="Choose event day">
-      <label for="fri">FRIDAY<small>02 Oct · 17:00+</small></label>
-      <label for="sat">SATURDAY<small>03 Oct · all day</small></label>
-      <label for="sun">SUNDAY<small>04 Oct · all day</small></label>
-    </nav>
-    <section id="panel-fri" class="day-panel" aria-label="Friday evening events">
-      <div class="date-head"><div class="small">FRIDAY EVENING</div><h3>02.Oct.2026</h3><p>Events beginning at 17:00 or later, including nightlife.</p></div>
-      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
-      <div id="fri-chapters"></div>
-    </section>
-    <section id="panel-sat" class="day-panel" aria-label="Saturday events">
-      <div class="date-head"><div class="small">SATURDAY</div><h3>03.Oct.2026</h3><p>Daytime, evening and late-night plans.</p></div>
-      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
-      <div id="sat-chapters"></div>
-    </section>
-    <section id="panel-sun" class="day-panel" aria-label="Sunday events">
-      <div class="date-head"><div class="small">SUNDAY</div><h3>04.Oct.2026</h3><p>Daytime, evening and late-night plans.</p></div>
-      <div class="notice">The locked ZUPPIE event dataset was not included with the supplied instructions. No unverified event, time, price or offer has been inserted.</div>
-      <div id="sun-chapters"></div>
-    </section>
-    <p class="disclaimer">Always verify dates, times, prices, availability and reservations directly with the event organiser, venue or bar before going. ZUPPIE BASEL is an independent guide, not an event organiser or ticket seller.</p>
-  </main>
-  <footer>
-    <div class="footer-brand">ZUPPIE BASEL ✦</div>
-    <p>Big kids make plans too. · Basel city</p>
-    <div class="legal"><details><summary>Terms &amp; information</summary><p>Information is provided for planning purposes. Third-party events and offers may change without notice. Official links are provided for convenience; ZUPPIE BASEL does not control external websites, reservations or purchases.</p></details></div>
-    <p>© 2026 ZUPPIE BASEL</p>
-  </footer>
+<div class="hero">
+ <div class="hero-inner"><img class="hero-logo" src="./logo.png" alt="ZUPPIE BASEL" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+ <div class="logo-fallback">ZUPPIE<br/>BASEL</div>
+ <span class="hero-tagline">BIG KIDS MAKE PLANS TOO. ✨</span><p class="hero-sub">YOUR FRIDAY & WEEKEND GUIDE TO BASEL</p></div>
+ <input type="checkbox" class="menu-toggle" id="menu-toggle"/>
+ <label for="menu-toggle" class="menu-button" aria-label="Open navigation">☰</label>
+ <nav class="nav-pop"><label for="tab-events">💗 Events 02–04 Oct</label><label for="tab-about">✨ About ZUPPIE</label></nav>
+</div>
+<input type="radio" class="radio" id="tab-events" name="main-tab" checked/>
+<input type="radio" class="radio" id="tab-about" name="main-tab"/>
+<div class="panels">
+<section id="events-panel" class="panel">
+ <nav class="main-tabs" aria-label="Main sections"><label for="tab-events"><span class="tab-icon">🗓️</span>Events<br/>02–04 Oct</label><label for="tab-about"><span class="tab-icon">✨</span>About<br/>ZUPPIE</label></nav>
+ <input type="radio" class="radio" id="day-fri" name="day" checked/>
+ <input type="radio" class="radio" id="day-sat" name="day"/>
+ <input type="radio" class="radio" id="day-sun" name="day"/>
+ <nav class="day-tabs" aria-label="Weekend days"><label for="day-fri" id="day-fri-label">Friday<br/>Evening</label><label for="day-sat" id="day-sat-label">Saturday</label><label for="day-sun" id="day-sun-label">Sunday</label></nav>
+<div class="day-panel" id="fri-panel" role="tabpanel" aria-labelledby="day-fri-label">
+<div class="plans-date-line"><h2 class="date-title">FRIDAY EVENING, 02.Oct.2026</h2><span class="plan-count-pill" data-count-for="fri">20 activities</span></div>
+<p class="day-note">From 17:00 onwards · Basel city only</p>
+<section class="event-group" id="fri-theatre" data-category="theatre">
+<div class="event-category">2 — 🎭 THEATRE, COMEDY & PERFORMANCE</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Kids — Boris Nikitin / Tšeliso Monaheng"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer">Kids — Boris Nikitin / Tšeliso Monaheng ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kaserne Basel, Reithalle</strong></div><div><span>Time</span><strong>18:00</strong></div><div><span>Remark</span><strong>Experimental theatre and live cinema; not a children&#x27;s production.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://tanzhausbasel.ch/de/spielplan-veranstaltungen/transmission-line/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Transmission Line"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://tanzhausbasel.ch/de/spielplan-veranstaltungen/transmission-line/" target="_blank" rel="noopener noreferrer">Transmission Line ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Tanzhaus Basel, Magazin 1</strong></div><div><span>Time</span><strong>20:00–21:00</strong></div><div><span>Remark</span><strong>Experimental sound and performance.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/RWOW46LY" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Medea – Unitheater Basel"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/RWOW46LY" target="_blank" rel="noopener noreferrer">Medea – Unitheater Basel ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Verso, Petersgraben 50</strong></div><div><span>Time</span><strong>20:15–22:05</strong></div><div><span>Remark</span><strong>Theatre with staged combat choreography.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/fabio-landert-die-verbotene-frucht" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Fabio Landert: Die verbotene Frucht"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/fabio-landert-die-verbotene-frucht" target="_blank" rel="noopener noreferrer">Fabio Landert: Die verbotene Frucht ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Fauteuil/Tabourettli</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Stand-up comedy.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-music" data-category="music">
+<div class="event-category">3 — 🎶 LIVE MUSIC & CONCERTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/alla-muffat-franzoesisch-italienisch-oder-doch-vermischt" target="_blank" rel="noopener noreferrer" aria-label="Open listing for «alla Muffat» – Französisch, Italienisch, oder doch vermischt?"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/alla-muffat-franzoesisch-italienisch-oder-doch-vermischt" target="_blank" rel="noopener noreferrer">«alla Muffat» – Französisch, Italienisch, oder doch vermischt? ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Zinzendorfhaus</strong></div><div><span>Time</span><strong>19:30–21:00</strong></div><div><span>Remark</span><strong>Baroque chamber music; reservations available.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/rahel-talts-quartet" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Rahel Talts Quartet"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/rahel-talts-quartet" target="_blank" rel="noopener noreferrer">Rahel Talts Quartet ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Bird&#x27;s Eye Jazz Club</strong></div><div><span>Time</span><strong>20:30–23:00</strong></div><div><span>Remark</span><strong>Jazz.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/bT126xwv" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Camelin &amp; Byjence"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/bT126xwv" target="_blank" rel="noopener noreferrer">Camelin &amp; Byjence ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Atlantis Basel</strong></div><div><span>Time</span><strong>20:30–22:30</strong></div><div><span>Remark</span><strong>Acoustic rock, folk and singer-songwriter music.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-cinema" data-category="cinema">
+<div class="event-category">4 — 🎬 FILM & CINEMA</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/ecologies-of-mind-in-the-cold-war" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Ecologies of Mind in the Cold War"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/ecologies-of-mind-in-the-cold-war" target="_blank" rel="noopener noreferrer">Ecologies of Mind in the Cold War ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>17:00</strong></div><div><span>Remark</span><strong>Film screening and discussion.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/mala-morska-vila-reihe-ruf-der-sirenen" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Malá morská víla"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/mala-morska-vila-reihe-ruf-der-sirenen" target="_blank" rel="noopener noreferrer">Malá morská víla ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>19:30</strong></div><div><span>Remark</span><strong>Ruf der Sirenen film series.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/three-identical-strangers" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Three Identical Strangers"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/three-identical-strangers" target="_blank" rel="noopener noreferrer">Three Identical Strangers ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Neues Kino</strong></div><div><span>Time</span><strong>20:30</strong></div><div><span>Remark</span><strong>Documentary film.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/alice-in-den-staedten-reihe-wim-wenders" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Alice in den Städten"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/alice-in-den-staedten-reihe-wim-wenders" target="_blank" rel="noopener noreferrer">Alice in den Städten ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>21:15</strong></div><div><span>Remark</span><strong>Wim Wenders film series.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-culture" data-category="culture">
+<div class="event-category">5 — 📚 TALKS, LITERATURE & CULTURE</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/sapphische-truemmer-songs-for-sailors-and-lovers" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Sapphische Trümmer – Songs for Sailors and Lovers"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#694461;--thumb-high:#c28ba7"><span>📚</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/sapphische-truemmer-songs-for-sailors-and-lovers" target="_blank" rel="noopener noreferrer">Sapphische Trümmer – Songs for Sailors and Lovers ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Maison 44</strong></div><div><span>Time</span><strong>18:00</strong></div><div><span>Remark</span><strong>Poetry, music and spoken performance.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/aufindiewueste" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Auf in die Wüste! – Auftaktveranstaltung mit Eva Illouz und Meron Mendel"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#694461;--thumb-high:#c28ba7"><span>📚</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/aufindiewueste" target="_blank" rel="noopener noreferrer">Auf in die Wüste! – Auftaktveranstaltung mit Eva Illouz und Meron Mendel ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Foyer</strong></div><div><span>Time</span><strong>18:30–20:00</strong></div><div><span>Remark</span><strong>Discussion accompanying Moses und Aron.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/johannes-r.-millius-im-abgang-lebhaft" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Johannes R. Millius: Im Abgang lebhaft"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#694461;--thumb-high:#c28ba7"><span>📚</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/johannes-r.-millius-im-abgang-lebhaft" target="_blank" rel="noopener noreferrer">Johannes R. Millius: Im Abgang lebhaft ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Fauteuil/Tabourettli</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Spoken-word evening.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-food" data-category="food">
+<div class="event-category">7 — 🍽️ FOOD, MARKETS & SOCIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/Cu3zIzTy" target="_blank" rel="noopener noreferrer" aria-label="Open listing for BBQ-Schiff uff em Rhy"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4a58;--thumb-high:#df9f95"><span>🍽️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/Cu3zIzTy" target="_blank" rel="noopener noreferrer">BBQ-Schiff uff em Rhy ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Rhystärn, departing Schifflände</strong></div><div><span>Time</span><strong>19:00–21:45</strong></div><div><span>Remark</span><strong>BBQ buffet and evening Rhine cruise; reservation required at least 24 hours before departure.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-sports" data-category="sports">
+<div class="event-category">8 — 🚶 SPORTS & OUTDOORS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/erasmus-superstar-stadtfuehrung-zu-humanismus-reform" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Erasmus Superstar! Stadtführung zu Humanismus &amp; Reform"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#4a5961;--thumb-high:#a28aa3"><span>🚶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/erasmus-superstar-stadtfuehrung-zu-humanismus-reform" target="_blank" rel="noopener noreferrer">Erasmus Superstar! Stadtführung zu Humanismus &amp; Reform ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Meeting point Basler Münster</strong></div><div><span>Time</span><strong>18:00–20:00</strong></div><div><span>Remark</span><strong>Historical walking tour.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-festivals" data-category="festivals">
+<div class="event-category">9 — ✨ FESTIVALS & SPECIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://tickets.frankmartini.se/events/frankmartinientertainmentab/2121675" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Frank Martini Entertainment: Party of the Century"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#803b6f;--thumb-high:#e098ae"><span>✨</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://tickets.frankmartini.se/events/frankmartinientertainmentab/2121675" target="_blank" rel="noopener noreferrer">Frank Martini Entertainment: Party of the Century ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Volkshaus Basel</strong></div><div><span>Time</span><strong>Organiser ticket listing from 19:30</strong></div><div><span>Remark</span><strong>Live music and theatrical entertainment inspired by the 1920s.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-nightlife" data-category="nightlife">
+<div class="event-category">10 — 🌙 NIGHTLIFE, CLUBS & PARTIES</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/41CC8Vaxa" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Formel 80: Depeche Mode Special"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/41CC8Vaxa" target="_blank" rel="noopener noreferrer">Formel 80: Depeche Mode Special ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Sudhaus</strong></div><div><span>Time</span><strong>21:00–03:00 (+1 day)</strong></div><div><span>Remark</span><strong>Depeche Mode, synth-pop, new wave and other 1980s music.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.heimatbasel.ch/event-details/noir-minimal-tech-house-2026-10-02-23-00?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Noir – Minimal &amp; Tech-House"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.heimatbasel.ch/event-details/noir-minimal-tech-house-2026-10-02-23-00?lang=en" target="_blank" rel="noopener noreferrer">Noir – Minimal &amp; Tech-House ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>HEIMAT Basel</strong></div><div><span>Time</span><strong>From 23:00</strong></div><div><span>Remark</span><strong>Electronic music.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/mike-the-connector" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Mike The Connector"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/mike-the-connector" target="_blank" rel="noopener noreferrer">Mike The Connector ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Nordstern</strong></div><div><span>Time</span><strong>From 23:00</strong></div><div><span>Remark</span><strong>With Gianundso, OG Lotti and Scar.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="fri-happy-hour" data-category="happy-hour">
+<div class="event-category">12 — 🍸 RESTAURANT & BAR HAPPY HOURS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.damatti.it/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Damatti"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.damatti.it/" target="_blank" rel="noopener noreferrer">Damatti ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Damatti</strong></div><div><span>Time</span><strong>17:00–20:00</strong></div><div><span>Remark</span><strong>Complimentary Italian aperitivo snacks with a purchased drink.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Coccodrillo Ristorante"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer">Coccodrillo Ristorante ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Coccodrillo Ristorante</strong></div><div><span>Time</span><strong>17:00–18:00 qualifying window</strong></div><div><span>Remark</span><strong>Selected Spritz, Hugo and Bellini cocktails CHF 7.90 instead of CHF 12; published offer begins at 15:30, but only its post-17:00 portion is in scope.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.dasviertel.ch/viertel-dach" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Viertel Dach: Bubbles &amp; Bass Season Closing"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.dasviertel.ch/viertel-dach" target="_blank" rel="noopener noreferrer">Viertel Dach: Bubbles &amp; Bass Season Closing ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Viertel Dach</strong></div><div><span>Time</span><strong>17:00–21:00 qualifying window</strong></div><div><span>Remark</span><strong>Prosecco à discrétion CHF 25; published offer begins at 16:00; weather-dependent.</strong></div></div></article>
+</div></section>
+</div>
+<div class="day-panel" id="sat-panel" role="tabpanel" aria-labelledby="day-sat-label">
+<div class="plans-date-line"><h2 class="date-title">SATURDAY, 03.Oct.2026</h2><span class="plan-count-pill" data-count-for="sat">31 activities</span></div>
+<p class="day-note">All-day listings · Basel city only</p>
+<section class="event-group" id="sat-exhibitions" data-category="exhibitions">
+<div class="event-category">1 — 🖼️ EXHIBITIONS & MUSEUMS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/andreas-fick-thomas-muff-vernissage" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Andreas Fick &amp; Thomas Muff: Vernissage"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/andreas-fick-thomas-muff-vernissage" target="_blank" rel="noopener noreferrer">Andreas Fick &amp; Thomas Muff: Vernissage ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Galerie Marianne Grob</strong></div><div><span>Time</span><strong>14:00–17:00</strong></div><div><span>Remark</span><strong>Exhibition opening.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/labouring-bodies-fuehrung-fuer-blinde-und-sehbehinderte-menschen" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Labouring Bodies: Führung für blinde und sehbehinderte Menschen"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/labouring-bodies-fuehrung-fuer-blinde-und-sehbehinderte-menschen" target="_blank" rel="noopener noreferrer">Labouring Bodies: Führung für blinde und sehbehinderte Menschen ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Museum Tinguely</strong></div><div><span>Time</span><strong>14:00–15:30</strong></div><div><span>Remark</span><strong>Accessible guided exhibition tour.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/van-gogh-hodler-und-ein-cabriolet-die-sammlerin-und-pionierin-gertrud-duebi-mueller-fuehrung" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Van Gogh, Hodler und ein Cabriolet: Führung"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/van-gogh-hodler-und-ein-cabriolet-die-sammlerin-und-pionierin-gertrud-duebi-mueller-fuehrung" target="_blank" rel="noopener noreferrer">Van Gogh, Hodler und ein Cabriolet: Führung ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kunstmuseum Basel, Neubau</strong></div><div><span>Time</span><strong>14:00–15:00</strong></div><div><span>Remark</span><strong>Guided exhibition tour.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/cao-fei-testimonies-to-the-near-future-ausstellungsrundgang" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Cao Fei – Testimonies to the Near Future: Ausstellungsrundgang"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/cao-fei-testimonies-to-the-near-future-ausstellungsrundgang" target="_blank" rel="noopener noreferrer">Cao Fei – Testimonies to the Near Future: Ausstellungsrundgang ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kunstmuseum Basel, Gegenwart</strong></div><div><span>Time</span><strong>15:00–16:00</strong></div><div><span>Remark</span><strong>Guided tour.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-theatre" data-category="theatre">
+<div class="event-category">2 — 🎭 THEATRE, COMEDY & PERFORMANCE</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/fuehrungen" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Öffentliche Führung"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/fuehrungen" target="_blank" rel="noopener noreferrer">Öffentliche Führung ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel</strong></div><div><span>Time</span><strong>14:00–15:30</strong></div><div><span>Remark</span><strong>Public backstage/theatre tour.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Kids — Boris Nikitin / Tšeliso Monaheng"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer">Kids — Boris Nikitin / Tšeliso Monaheng ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kaserne Basel, Reithalle</strong></div><div><span>Time</span><strong>18:00</strong></div><div><span>Remark</span><strong>Experimental live-cinema performance.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/mosesundaron" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Moses und Aron"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/mosesundaron" target="_blank" rel="noopener noreferrer">Moses und Aron ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Grosse Bühne</strong></div><div><span>Time</span><strong>19:30</strong></div><div><span>Remark</span><strong>Basel premiere of Arnold Schönberg&#x27;s opera; recommended 14+; approximately two hours without interval.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/boxeo44" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Boxeo 44 – Champions und Clowns"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/boxeo44" target="_blank" rel="noopener noreferrer">Boxeo 44 – Champions und Clowns ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Schauspielhaus</strong></div><div><span>Time</span><strong>19:30–22:45</strong></div><div><span>Remark</span><strong>Boxing and theatre performance; tickets from CHF 30.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://tanzhausbasel.ch/de/spielplan-veranstaltungen/transmission-line/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Transmission Line"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://tanzhausbasel.ch/de/spielplan-veranstaltungen/transmission-line/" target="_blank" rel="noopener noreferrer">Transmission Line ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Tanzhaus Basel, Magazin 1</strong></div><div><span>Time</span><strong>20:00–21:00</strong></div><div><span>Remark</span><strong>Experimental sound and performance.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/fabio-landert-die-verbotene-frucht" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Fabio Landert: Die verbotene Frucht"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/fabio-landert-die-verbotene-frucht" target="_blank" rel="noopener noreferrer">Fabio Landert: Die verbotene Frucht ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Fauteuil/Tabourettli</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Stand-up comedy.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/zum-dessert-mousse-au-chocolat" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Zum Dessert Mousse au Chocolat"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/zum-dessert-mousse-au-chocolat" target="_blank" rel="noopener noreferrer">Zum Dessert Mousse au Chocolat ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Fauteuil/Tabourettli</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Swiss German comedy.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-music" data-category="music">
+<div class="event-category">3 — 🎶 LIVE MUSIC & CONCERTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/swiss-death-metal-massacre-2" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Swiss Death Metal Massacre 2"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/swiss-death-metal-massacre-2" target="_blank" rel="noopener noreferrer">Swiss Death Metal Massacre 2 ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Sommercasino</strong></div><div><span>Time</span><strong>From 18:30</strong></div><div><span>Remark</span><strong>Deathcult, Filth, Grotesquerie and Damnatory.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/olivier-mas" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Olivier Mas"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/olivier-mas" target="_blank" rel="noopener noreferrer">Olivier Mas ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>8-Bar</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Blues, country, folk and rock; collection.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/rahel-talts-quartet" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Rahel Talts Quartet"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/rahel-talts-quartet" target="_blank" rel="noopener noreferrer">Rahel Talts Quartet ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Bird&#x27;s Eye Jazz Club</strong></div><div><span>Time</span><strong>20:30–23:00</strong></div><div><span>Remark</span><strong>Jazz.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/angelo-brand-trio" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Angelo Brand Trio"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/angelo-brand-trio" target="_blank" rel="noopener noreferrer">Angelo Brand Trio ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Atlantis Basel</strong></div><div><span>Time</span><strong>20:30</strong></div><div><span>Remark</span><strong>Gypsy jazz.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/the-duesseldorf-duesterboys" target="_blank" rel="noopener noreferrer" aria-label="Open listing for The Düsseldorf Düsterboys"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/the-duesseldorf-duesterboys" target="_blank" rel="noopener noreferrer">The Düsseldorf Düsterboys ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Gannet</strong></div><div><span>Time</span><strong>21:00</strong></div><div><span>Remark</span><strong>Folk-pop.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-cinema" data-category="cinema">
+<div class="event-category">4 — 🎬 FILM & CINEMA</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/im-lauf-der-zeit-reihe-wim-wenders" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Im Lauf der Zeit"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/im-lauf-der-zeit-reihe-wim-wenders" target="_blank" rel="noopener noreferrer">Im Lauf der Zeit ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>15:30</strong></div><div><span>Remark</span><strong>Wim Wenders film series.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/ive-heard-the-mermaids-singing-reihe-ruf-der-sirenen" target="_blank" rel="noopener noreferrer" aria-label="Open listing for I&#x27;ve Heard the Mermaids Singing"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/ive-heard-the-mermaids-singing-reihe-ruf-der-sirenen" target="_blank" rel="noopener noreferrer">I&#x27;ve Heard the Mermaids Singing ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>19:00</strong></div><div><span>Remark</span><strong>Ruf der Sirenen film series.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/der-amerikanische-freund-reihe-wim-wenders" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Der amerikanische Freund"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/der-amerikanische-freund-reihe-wim-wenders" target="_blank" rel="noopener noreferrer">Der amerikanische Freund ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>20:45</strong></div><div><span>Remark</span><strong>Wim Wenders film series.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-food" data-category="food">
+<div class="event-category">7 — 🍽️ FOOD, MARKETS & SOCIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/basler-stadtmarkt" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Basler Stadtmarkt"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4a58;--thumb-high:#df9f95"><span>🍽️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/basler-stadtmarkt" target="_blank" rel="noopener noreferrer">Basler Stadtmarkt ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Marktplatz</strong></div><div><span>Time</span><strong>08:00–17:00</strong></div><div><span>Remark</span><strong>Regular city food and produce market.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/vRRxacde" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Burger-Schiff uff em Rhy"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4a58;--thumb-high:#df9f95"><span>🍽️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/vRRxacde" target="_blank" rel="noopener noreferrer">Burger-Schiff uff em Rhy ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Rhystärn, departing Schifflände</strong></div><div><span>Time</span><strong>19:00–21:45</strong></div><div><span>Remark</span><strong>Evening food cruise.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-sports" data-category="sports">
+<div class="event-category">8 — 🚶 SPORTS & OUTDOORS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/Mzaxg2vir" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Urban Art City Tour – Graffiti &amp; Street Art"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#4a5961;--thumb-high:#a28aa3"><span>🚶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/Mzaxg2vir" target="_blank" rel="noopener noreferrer">Urban Art City Tour – Graffiti &amp; Street Art ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Artstübli</strong></div><div><span>Time</span><strong>11:00–12:30</strong></div><div><span>Remark</span><strong>Guided urban-art walking tour in Basel.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/theaterplatz-quartier-wanderung" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Theaterplatz-Quartier Wanderung"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#4a5961;--thumb-high:#a28aa3"><span>🚶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/theaterplatz-quartier-wanderung" target="_blank" rel="noopener noreferrer">Theaterplatz-Quartier Wanderung ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Meeting point Theaterplatz</strong></div><div><span>Time</span><strong>14:00</strong></div><div><span>Remark</span><strong>Guided neighbourhood walk; registration requested.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-festivals" data-category="festivals">
+<div class="event-category">9 — ✨ FESTIVALS & SPECIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/ana-vuji-sources-of-uncertainty-performance-und-soundabend" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Ana Vujić – Sources of Uncertainty: Performance- und Soundabend"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#803b6f;--thumb-high:#e098ae"><span>✨</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/ana-vuji-sources-of-uncertainty-performance-und-soundabend" target="_blank" rel="noopener noreferrer">Ana Vujić – Sources of Uncertainty: Performance- und Soundabend ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Projektraum M54</strong></div><div><span>Time</span><strong>18:00–21:30</strong></div><div><span>Remark</span><strong>Performance, live sound and Balkan buffet.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-nightlife" data-category="nightlife">
+<div class="event-category">10 — 🌙 NIGHTLIFE, CLUBS & PARTIES</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://basellive.ch/event/HNGy52BQ" target="_blank" rel="noopener noreferrer" aria-label="Open listing for DA VA1BE Vol.2"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://basellive.ch/event/HNGy52BQ" target="_blank" rel="noopener noreferrer">DA VA1BE Vol.2 ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Parterre One Music</strong></div><div><span>Time</span><strong>22:00–04:00 (+1 day)</strong></div><div><span>Remark</span><strong>Hip-hop and urban music.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/nikita" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Nikita"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/nikita" target="_blank" rel="noopener noreferrer">Nikita ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>8-Bar</strong></div><div><span>Time</span><strong>From 22:00</strong></div><div><span>Remark</span><strong>Dancefloor classics; collection.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.heimatbasel.ch/event-details/gameboys-all-players-welcome-2026-10-03-23-00" target="_blank" rel="noopener noreferrer" aria-label="Open listing for GameBoys: All Players Welcome"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.heimatbasel.ch/event-details/gameboys-all-players-welcome-2026-10-03-23-00" target="_blank" rel="noopener noreferrer">GameBoys: All Players Welcome ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>HEIMAT Basel</strong></div><div><span>Time</span><strong>From 23:00</strong></div><div><span>Remark</span><strong>Club night.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/shoki287" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Shoki287"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#332949;--thumb-high:#8f517d"><span>🌙</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/shoki287" target="_blank" rel="noopener noreferrer">Shoki287 ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Nordstern</strong></div><div><span>Time</span><strong>From 23:00</strong></div><div><span>Remark</span><strong>With Chiara Fucci and Technofee.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-picks" data-category="picks">
+<div class="event-category">11 — 💗 ZUPPIE PICKS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/mosesundaron" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Moses und Aron"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#a04880;--thumb-high:#e1a3bd"><span>💗</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/mosesundaron" target="_blank" rel="noopener noreferrer">Moses und Aron ↗</a> <span class="pick-note">Repeated pick · not counted again</span></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Grosse Bühne</strong></div><div><span>Time</span><strong>19:30</strong></div><div><span>Remark</span><strong>Basel premiere; recommended 14+.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-happy-hour" data-category="happy-hour">
+<div class="event-category">12 — 🍸 RESTAURANT & BAR HAPPY HOURS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.damatti.it/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Damatti"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.damatti.it/" target="_blank" rel="noopener noreferrer">Damatti ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Damatti</strong></div><div><span>Time</span><strong>17:00–20:00</strong></div><div><span>Remark</span><strong>Complimentary Italian aperitivo snacks with a purchased drink.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Coccodrillo Ristorante"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer">Coccodrillo Ristorante ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Coccodrillo Ristorante</strong></div><div><span>Time</span><strong>15:30–18:00</strong></div><div><span>Remark</span><strong>Selected Spritz, Hugo and Bellini cocktails CHF 7.90 instead of CHF 12.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sat-flohmi" data-category="flohmi">
+<div class="event-category">13 — 🧺 FLOHMI / FLEA MARKETS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.bs.ch/verwaltung/praesidialdepartement/aemter-und-bereiche/aussenbeziehungen-und-standortmarketing/messen-und-maerkte/basler-maerkte/flohmarkt-petersplatz" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Flohmarkt Petersplatz"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#775060;--thumb-high:#c69eac"><span>🧺</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.bs.ch/verwaltung/praesidialdepartement/aemter-und-bereiche/aussenbeziehungen-und-standortmarketing/messen-und-maerkte/basler-maerkte/flohmarkt-petersplatz" target="_blank" rel="noopener noreferrer">Flohmarkt Petersplatz ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Petersplatz</strong></div><div><span>Time</span><strong>07:30–16:00</strong></div><div><span>Remark</span><strong>Outdoor second-hand market.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Flohmi am Samstag – Hallenflohmarkt"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#775060;--thumb-high:#c69eac"><span>🧺</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer">Flohmi am Samstag – Hallenflohmarkt ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Markthalle Basel, Unter der Kuppel</strong></div><div><span>Time</span><strong>11:00–16:00</strong></div><div><span>Remark</span><strong>Indoor second-hand market.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Vinyl Market"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#775060;--thumb-high:#c69eac"><span>🧺</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer">Vinyl Market ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Markthalle Basel, Wohnzimmer</strong></div><div><span>Time</span><strong>12:00–21:00</strong></div><div><span>Remark</span><strong>Approximately 30 record stalls; free visitor entry.</strong></div></div></article>
+</div></section>
+</div>
+<div class="day-panel" id="sun-panel" role="tabpanel" aria-labelledby="day-sun-label">
+<div class="plans-date-line"><h2 class="date-title">SUNDAY, 04.Oct.2026</h2><span class="plan-count-pill" data-count-for="sun">17 activities</span></div>
+<p class="day-note">All-day listings · Basel city only</p>
+<section class="event-group" id="sun-exhibitions" data-category="exhibitions">
+<div class="event-category">1 — 🖼️ EXHIBITIONS & MUSEUMS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/wunder-ueber-wunder-einblicke-in-die-basler-kunst-und-kuriositaetenkammern" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Wunder über Wunder! – Einblicke in die Basler Kunst- und Kuriositätenkammern"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/wunder-ueber-wunder-einblicke-in-die-basler-kunst-und-kuriositaetenkammern" target="_blank" rel="noopener noreferrer">Wunder über Wunder! – Einblicke in die Basler Kunst- und Kuriositätenkammern ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Historisches Museum Basel, Barfüsserkirche</strong></div><div><span>Time</span><strong>11:00–12:00</strong></div><div><span>Remark</span><strong>Guided historical tour.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.tinguely.ch/de/veranstaltungen/fuehrung-zilla-leutenegger-04-10-2026-11h30.html" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Zilla Leutenegger – Zwischenraum / Hindurchzuschaun: Führung"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.tinguely.ch/de/veranstaltungen/fuehrung-zilla-leutenegger-04-10-2026-11h30.html" target="_blank" rel="noopener noreferrer">Zilla Leutenegger – Zwischenraum / Hindurchzuschaun: Führung ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Museum Tinguely</strong></div><div><span>Time</span><strong>11:30–12:30</strong></div><div><span>Remark</span><strong>Guided exhibition tour.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/ana-vuji-sources-of-uncertainty-finissage" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Ana Vujić – Sources of Uncertainty: Finissage"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/ana-vuji-sources-of-uncertainty-finissage" target="_blank" rel="noopener noreferrer">Ana Vujić – Sources of Uncertainty: Finissage ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Projektraum M54</strong></div><div><span>Time</span><strong>14:00–17:00</strong></div><div><span>Remark</span><strong>Exhibition closing event.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/van-gogh-hodler-und-ein-cabriolet-die-sammlerin-und-pionierin-gertrud-duebi-mueller-guided-tour-of-the-exhibition" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Van Gogh, Hodler und ein Cabriolet: Guided Tour of the Exhibition"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4f83;--thumb-high:#d791af"><span>🖼️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/van-gogh-hodler-und-ein-cabriolet-die-sammlerin-und-pionierin-gertrud-duebi-mueller-guided-tour-of-the-exhibition" target="_blank" rel="noopener noreferrer">Van Gogh, Hodler und ein Cabriolet: Guided Tour of the Exhibition ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kunstmuseum Basel, Neubau</strong></div><div><span>Time</span><strong>14:00</strong></div><div><span>Remark</span><strong>English-language guided tour.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-theatre" data-category="theatre">
+<div class="event-category">2 — 🎭 THEATRE, COMEDY & PERFORMANCE</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/mobydick" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Moby Dick – das Solo"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/mobydick" target="_blank" rel="noopener noreferrer">Moby Dick – das Solo ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Grosse Bühne</strong></div><div><span>Time</span><strong>16:00</strong></div><div><span>Remark</span><strong>Theatre; recommended 12+.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Kids — Boris Nikitin / Tšeliso Monaheng"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/boris-nikitin-teliso-monaheng-kids" target="_blank" rel="noopener noreferrer">Kids — Boris Nikitin / Tšeliso Monaheng ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kaserne Basel, Reithalle</strong></div><div><span>Time</span><strong>18:00</strong></div><div><span>Remark</span><strong>Experimental live-cinema performance.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/biedermann" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Biedermann und die Brandstifter"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/biedermann" target="_blank" rel="noopener noreferrer">Biedermann und die Brandstifter ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Schauspielhaus</strong></div><div><span>Time</span><strong>18:30–20:20</strong></div><div><span>Remark</span><strong>Theatre; tickets from CHF 30.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.theater-basel.ch/de/heuteabendlolablau" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Heute Abend: Lola Blau"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.theater-basel.ch/de/heuteabendlolablau" target="_blank" rel="noopener noreferrer">Heute Abend: Lola Blau ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Theater Basel, Kleine Bühne</strong></div><div><span>Time</span><strong>19:00–21:00</strong></div><div><span>Remark</span><strong>Musical theatre; tickets from CHF 30.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/zum-dessert-mousse-au-chocolat" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Zum Dessert Mousse au Chocolat"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#673258;--thumb-high:#ba6e91"><span>🎭</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/zum-dessert-mousse-au-chocolat" target="_blank" rel="noopener noreferrer">Zum Dessert Mousse au Chocolat ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Fauteuil/Tabourettli</strong></div><div><span>Time</span><strong>20:00</strong></div><div><span>Remark</span><strong>Swiss German comedy.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-music" data-category="music">
+<div class="event-category">3 — 🎶 LIVE MUSIC & CONCERTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/trio-for-two-ivo-haun-peter-croton-gesang-und-laute" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Trio for Two – Ivo Haun &amp; Peter Croton"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#55335d;--thumb-high:#af74a2"><span>🎶</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/trio-for-two-ivo-haun-peter-croton-gesang-und-laute" target="_blank" rel="noopener noreferrer">Trio for Two – Ivo Haun &amp; Peter Croton ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Erasmushaus</strong></div><div><span>Time</span><strong>17:00–19:00</strong></div><div><span>Remark</span><strong>Voice, lute and improvisations inspired by John Dowland; collection.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-cinema" data-category="cinema">
+<div class="event-category">4 — 🎬 FILM & CINEMA</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/tokyo-ga-reihe-wim-wenders" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Tokyo-Ga"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/tokyo-ga-reihe-wim-wenders" target="_blank" rel="noopener noreferrer">Tokyo-Ga ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>16:00</strong></div><div><span>Remark</span><strong>Wim Wenders film series.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/der-himmel-ueber-berlin-reihe-wim-wenders" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Der Himmel über Berlin"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/der-himmel-ueber-berlin-reihe-wim-wenders" target="_blank" rel="noopener noreferrer">Der Himmel über Berlin ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>18:00</strong></div><div><span>Remark</span><strong>Wim Wenders film series.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/titane-reihe-bodymaxxing" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Titane"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#574265;--thumb-high:#9b7baa"><span>🎬</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/titane-reihe-bodymaxxing" target="_blank" rel="noopener noreferrer">Titane ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Stadtkino Basel</strong></div><div><span>Time</span><strong>20:30</strong></div><div><span>Remark</span><strong>Bodymaxxing film series.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-food" data-category="food">
+<div class="event-category">7 — 🍽️ FOOD, MARKETS & SOCIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://sommercasino.ch/events/comicmarkt/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Comicmarkt"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4a58;--thumb-high:#df9f95"><span>🍽️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://sommercasino.ch/events/comicmarkt/" target="_blank" rel="noopener noreferrer">Comicmarkt ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Sommercasino</strong></div><div><span>Time</span><strong>Market 10:00–19:00; adult comic reading 15:00–15:45; participatory trash-film evening 20:00–23:00</strong></div><div><span>Remark</span><strong>Comic artists&#x27; and illustrators&#x27; market; not classified as second-hand Flohmi.</strong></div></div></article>
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.mybasel.ch/events-basel/tangocita" target="_blank" rel="noopener noreferrer" aria-label="Open listing for TangoCita"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#8a4a58;--thumb-high:#df9f95"><span>🍽️</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.mybasel.ch/events-basel/tangocita" target="_blank" rel="noopener noreferrer">TangoCita ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Kunsterei Basel</strong></div><div><span>Time</span><strong>16:00–20:00</strong></div><div><span>Remark</span><strong>Social tango.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-festivals" data-category="festivals">
+<div class="event-category">9 — ✨ FESTIVALS & SPECIAL EVENTS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://shop.mkb.ch/de/veranstaltungen/zusammen-leben-thementag-nachhaltigkeit.html" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Zusammen leben – Thementag Nachhaltigkeit"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#803b6f;--thumb-high:#e098ae"><span>✨</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://shop.mkb.ch/de/veranstaltungen/zusammen-leben-thementag-nachhaltigkeit.html" target="_blank" rel="noopener noreferrer">Zusammen leben – Thementag Nachhaltigkeit ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Museum der Kulturen Basel</strong></div><div><span>Time</span><strong>10:00–17:00</strong></div><div><span>Remark</span><strong>FREE; sustainability fair, exhibitions, discussions and musical programme.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-picks" data-category="picks">
+<div class="event-category">11 — 💗 ZUPPIE PICKS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://shop.mkb.ch/de/veranstaltungen/zusammen-leben-thementag-nachhaltigkeit.html" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Zusammen leben – Thementag Nachhaltigkeit"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#a04880;--thumb-high:#e1a3bd"><span>💗</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://shop.mkb.ch/de/veranstaltungen/zusammen-leben-thementag-nachhaltigkeit.html" target="_blank" rel="noopener noreferrer">Zusammen leben – Thementag Nachhaltigkeit ↗</a> <span class="pick-note">Repeated pick · not counted again</span></div></div><div class="event-meta"><div><span>Venue</span><strong>Museum der Kulturen Basel</strong></div><div><span>Time</span><strong>10:00–17:00</strong></div><div><span>Remark</span><strong>FREE.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-happy-hour" data-category="happy-hour">
+<div class="event-category">12 — 🍸 RESTAURANT & BAR HAPPY HOURS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Coccodrillo Ristorante"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#925367;--thumb-high:#e4aa9c"><span>🍸</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://www.coccodrillo-ristorante.com/de/angeboten" target="_blank" rel="noopener noreferrer">Coccodrillo Ristorante ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Coccodrillo Ristorante</strong></div><div><span>Time</span><strong>15:30–18:00</strong></div><div><span>Remark</span><strong>Selected Spritz, Hugo and Bellini cocktails CHF 7.90 instead of CHF 12.</strong></div></div></article>
+</div></section>
+<section class="event-group" id="sun-flohmi" data-category="flohmi">
+<div class="event-category">13 — 🧺 FLOHMI / FLEA MARKETS</div>
+<div class="event-table">
+<article class="event-row"><div class="event-photo-cell"><a class="event-photo-link" href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer" aria-label="Open listing for Flohmi am Sonntag – Hallenflohmarkt"><span class="event-art-placeholder" aria-hidden="true" style="--thumb-low:#775060;--thumb-high:#c69eac"><span>🧺</span><i>✦</i></span></a></div><div class="event-main"><div class="event-name"><a href="https://markthallebasel.ch/flohmarkt/" target="_blank" rel="noopener noreferrer">Flohmi am Sonntag – Hallenflohmarkt ↗</a></div></div><div class="event-meta"><div><span>Venue</span><strong>Markthalle Basel, Unter der Kuppel</strong></div><div><span>Time</span><strong>11:00–16:00</strong></div><div><span>Remark</span><strong>Indoor second-hand market.</strong></div></div></article>
+</div></section>
+</div><p class="events-disclaimer">68 source-verified event sessions (Friday 20 · Saturday 31 · Sunday 17), excluding repeated ZUPPIE Picks and happy-hour offers. Three distinct aperitivo / happy-hour offers are listed on their applicable days. This source-verified selection is not a complete inventory of all commercial cinema screenings: date-specific Arena Basel and kult.kino programmes were not reliably retrievable. Recheck availability, cancellations, prices and bookings directly with the linked organiser before attending.</p>
+</section>
+<section id="about-panel" class="panel">
+ <nav class="main-tabs" aria-label="Main sections"><label for="tab-events"><span class="tab-icon">🗓️</span>Events<br/>02–04 Oct</label><label for="tab-about"><span class="tab-icon">✨</span>About<br/>ZUPPIE</label></nav>
+ <div class="about-heading"><h1>Meet ZUPPIE BASEL ✨</h1><p>Big kids make plans too.</p></div>
+ <div class="about-card"><h2>A little more grown-up. Just as curious.</h2><p>It started with GUGU and little explorers. ZUPPIE is its sister for the big ones: exhibitions to see, shows to catch, music to hear and corners of Basel to discover.</p><p>Edition: Friday evening 02.Oct.2026 to Sunday 04.Oct.2026 — all inside Basel city.</p></div>
+ <div class="about-grid"><span>🖼️ Exhibitions</span><span>🎭 Theatre</span><span>🎶 Live Music</span><span>🎬 Cinema</span><span>✨ Culture</span><span>🌙 Nightlife</span><span>🧺 Flohmi</span><span>🍸 Happy Hour</span></div>
+ <div class="about-card"><h2>One city. More plans.</h2><p>Listings are organised by day, then by the locked event category. Flohmi and restaurant/bar happy hours have their own chapters. ZUPPIE PICKS repeats selected plans, without inflating the 68-session event total.</p></div>
+</section>
+</div>
+<footer class="site-footer"><div class="contact"><span class="ig">◎</span><span><strong>ZUPPIE BASEL on Instagram</strong><small>Follow the sister project for big explorers.</small></span></div>
+<section class="legal">
+<details id="terms"><summary>Terms</summary><div><p>ZUPPIE BASEL is an independent editorial guide to public adult-relevant events and published restaurant/bar offers within Basel municipality. It is not an event organiser, venue, booking service or ticket seller.</p><p>Details such as opening times, line-ups, ticket prices, entry conditions, cancellations and happy-hour offer terms can change. Always confirm the current information on the linked organiser or venue's official page before making plans.</p><p>External names, logos and third-party content remain the property of their owners. Any sponsorship or affiliate partnership will be identified where relevant.</p></div></details>
+<details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. The ZUPPIE HTML does not include the GUGU site's analytics identifier or tracking script. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
+<details id="impressum"><summary>Impressum</summary><div><p>ZUPPIE BASEL — independent Basel city culture and leisure guide. Editorial contact details and official social channels will be published here when available.</p></div></details>
+</section><p class="copyright">© 2026 ZUPPIE BASEL. All rights reserved.</p></footer>
 </div>
 <script>
-  /* Add ONLY the supplied locked dataset here. The empty arrays are deliberate. Each
-     entry: { title, venue, time, remark, url }. Never populate from assumptions. */
-  const LOCKED_EVENTS = {
-    fri: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]},
-    sat: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]},
-    sun: {exhibitions:[], theatre:[], music:[], cinema:[], culture:[], nightlife:[], flohmi:[], happyhour:[], picks:[]}
-  };
-  const CHAPTERS = [
-    ['exhibitions','🖼️','EXHIBITIONS',''],
-    ['theatre','🎭','THEATRE',''],
-    ['music','🎵','LIVE MUSIC',''],
-    ['cinema','🎬','CINEMA',''],
-    ['culture','✨','CULTURAL ACTIVITIES',''],
-    ['nightlife','🪩','NIGHTLIFE',''],
-    ['flohmi','🛍️','FLOHMI / FLEA MARKETS','flohmi'],
-    ['happyhour','🍸','HAPPY HOUR','happy-hour'],
-    ['picks','💗','ZUPPIE PICKS','picks']
-  ];
-  function addText(node, tag, value, cls) {const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=value;node.appendChild(el);return el}
-  function render() {
-    ['fri','sat','sun'].forEach(day=>{
-      const root=document.getElementById(day+'-chapters');const nav=addText(root,'nav','','category-nav');nav.setAttribute('aria-label','Event chapters');
-      CHAPTERS.forEach(([key,emoji,label,cls])=>{
-        const a=addText(nav,'a',label,'');a.href='#'+day+'-'+key;
-      });
-      CHAPTERS.forEach(([key,emoji,label,cls])=>{
-        const section=addText(root,'section','','group '+cls);section.id=day+'-'+key;
-        const heading=addText(section,'h4','','');addText(heading,'span',emoji,'symbol');addText(heading,'span',label,'');addText(heading,'span','✦','spark');
-        const entries=LOCKED_EVENTS[day][key];
-        if(!entries.length){addText(section,'div','No locked entries supplied.','empty');return}
-        const list=addText(section,'div','','event-list');
-        entries.forEach(entry=>{
-          const item=addText(list,'article','','event');
-          if(!/^https:\/\//.test(entry.url || '')) {addText(item,'strong',entry.title);return}
-          const link=addText(item,'a',entry.title+' ↗');link.href=entry.url;link.target='_blank';link.rel='noopener noreferrer';
-          const dl=addText(item,'dl','');[['Venue',entry.venue],['Time',entry.time]].forEach(([k,v])=>{if(v){addText(dl,'dt',k);addText(dl,'dd',v)}});
-          if(entry.remark)addText(item,'p',entry.remark,'remark');
-        });
-      });
-    });
-  }
-  render();
+/* In-page navigation only. No GUGU tracking or family-project scripts. */
+document.querySelectorAll('.nav-pop label').forEach(function(label){label.addEventListener('click',function(){document.getElementById('menu-toggle').checked=false;});});
+/* Event details from user-provided ZUPPIE locked edition, 02–04 October 2026. */
 </script>
-</body>
-</html>
+</body></html>
