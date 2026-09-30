@@ -18,6 +18,29 @@
 <link rel="icon" type="image/png" href="/assets/favicon.PNG">
 <link rel="apple-touch-icon" href="/assets/favicon.PNG">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZUPPIE BASEL","url":"https://zuppie.ch/","logo":"https://zuppie.ch/logo.png","description":"Adult-oriented Basel city Friday evening and weekend event guide."}</script>
+<script>
+/* Microsoft Clarity analytics with a persistent owner-device opt-out.
+   To exclude this browser/device, visit: https://zuppie.ch/?exclude_clarity=1
+   To re-enable Clarity on this browser/device, visit: https://zuppie.ch/?include_clarity=1 */
+(function(c,l,a,r,i,t,y){
+    var key="zuppie_clarity_optout";
+    try{
+        var params=new URLSearchParams(c.location.search);
+        if(params.get("exclude_clarity")==="1"){
+            c.localStorage.setItem(key,"1");
+        }
+        if(params.get("include_clarity")==="1"){
+            c.localStorage.removeItem(key);
+        }
+        if(c.localStorage.getItem(key)==="1"){
+            return;
+        }
+    }catch(e){}
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window,document,"clarity","script","yqk6ruefhw");
+</script>
 <style>
 
 :root{
@@ -613,7 +636,7 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
 <footer class="site-footer"><a class="contact" href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Contact ZUPPIE BASEL on Instagram @zuppiebasel"><span class="ig">◎</span><span><strong>Follow Zuppie Basel on Instagram</strong><small>@zuppiebasel ↗</small></span></a>
 <section class="legal">
 <details id="terms"><summary>Terms</summary><div><p>ZUPPIE BASEL is an independent editorial guide to public adult-relevant events and published restaurant/bar offers within Basel municipality. It is not an event organiser, venue, booking service or ticket seller.</p><p>Details such as opening times, line-ups, ticket prices, entry conditions, cancellations and happy-hour offer terms can change. Always confirm the current information on the linked organiser or venue's official page before making plans.</p><p>External names, logos and third-party content remain the property of their owners. Any sponsorship or affiliate partnership will be identified where relevant.</p></div></details>
-<details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. The ZUPPIE HTML does not include the GUGU site's analytics identifier or tracking script. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
+<details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. Microsoft Clarity is used for website analytics to help understand how visitors use ZUPPIE. The site owner's own phone/browser is excluded from Clarity analytics through a persistent local browser opt-out. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
 <details id="impressum"><summary>Impressum</summary><div><p>ZUPPIE BASEL — independent Basel city culture and leisure guide. Instagram contact: <a href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">@zuppiebasel ↗</a>.</p></div></details>
 </section><p class="copyright">© 2026 ZUPPIE BASEL. All rights reserved.</p></footer>
 </div>
