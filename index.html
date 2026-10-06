@@ -577,19 +577,18 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
 
 .event-group[data-category="picks"]{--photo-front:url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=240&h=330&q=72");--photo-back:url("https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=240&h=330&q=72");--stack-bg:#a04779;}
 </style>
+<style id="zuppie-layout-update">
+.panels>#events-panel{display:block}
+#events-panel{padding-top:0!important}
+#about-zuppie .about-heading{padding-top:8px}
+</style>
 </head><body>
 <div class="app">
 <div class="hero">
 <img alt="ZUPPIE BASEL — Basel City Life & Weekend Plans" class="hero-art" fetchpriority="high" src="./assets/Header.PNG"/>
-<input class="menu-toggle" id="menu-toggle" type="checkbox"/>
-<label aria-label="Open navigation" class="menu-button" for="menu-toggle">☰</label>
-<nav class="nav-pop"><label for="tab-events">💗 Events 09–11 Oct</label><label for="tab-about">✨ About ZUPPIE</label></nav>
 </div>
-<input checked="" class="radio" id="tab-events" name="main-tab" type="radio"/>
-<input class="radio" id="tab-about" name="main-tab" type="radio"/>
 <div class="panels">
 <section class="panel" id="events-panel">
-<nav aria-label="Main sections" class="main-tabs"><label for="tab-events"><span class="tab-icon">🗓️</span>Events<br/>09–11 Oct</label><label for="tab-about"><span class="tab-icon">✨</span>About<br/>ZUPPIE</label></nav>
 <input checked="" class="radio" id="day-fri" name="day" type="radio"/>
 <input class="radio" id="day-sat" name="day" type="radio"/>
 <input class="radio" id="day-sun" name="day" type="radio"/>
@@ -743,16 +742,14 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
 <!-- WEEKEND PLANS: SUNDAY END -->
 <p class="events-disclaimer">Please check availability, cancellations, prices and bookings directly with the linked organiser before attending.</p>
 </section>
-<section class="panel" id="about-panel">
-<nav aria-label="Main sections" class="main-tabs"><label for="tab-events"><span class="tab-icon">🗓️</span>Events<br/>09–11 Oct</label><label for="tab-about"><span class="tab-icon">✨</span>About<br/>ZUPPIE</label></nav>
-<div class="about-heading"><h1>Meet ZUPPIE BASEL ✨</h1><p>Big kids make plans too.</p></div>
-<div class="about-card"><h2>A little more grown-up. Just as curious.</h2><p>It started with GUGU (gugubasel.ch) and little explorers. ZUPPIE is its sister for the big ones: exhibitions to see, shows to catch, music to hear and corners of Basel to discover.</p></div>
-<div class="about-grid"><span>🍸 Happy Hour</span><span>🎶 Live Music</span><span>🎉 Festivals &amp; Special Events</span><span>🍽️ Food, Markets &amp; Social events</span><span>🎬 Cinema</span><span>🎭 Theatre, Comedy &amp; Performances</span><span>📚 Talks, Literature &amp; Culture</span><span>🚶 Sports &amp; Outdoors</span><span>🌙 Nightlife</span><span>💗 Zuppie Picks</span></div>
-<div class="about-card"><h2>One city. More plans.</h2></div>
-</section>
+
 </div>
 <footer class="site-footer"><a aria-label="Contact ZUPPIE BASEL on Instagram @zuppiebasel" class="contact" href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank"><span class="ig">◎</span><span><strong>Follow Zuppie Basel on Instagram</strong><small>@zuppiebasel ↗</small></span></a>
 <section class="legal">
+<details id="about-zuppie"><summary>About Zuppie</summary><div><div class="about-heading"><h1>Meet ZUPPIE BASEL ✨</h1><p>Big kids make plans too.</p></div>
+<div class="about-card"><h2>A little more grown-up. Just as curious.</h2><p>It started with GUGU (gugubasel.ch) and little explorers. ZUPPIE is its sister for the big ones: exhibitions to see, shows to catch, music to hear and corners of Basel to discover.</p></div>
+<div class="about-grid"><span>🍸 Happy Hour</span><span>🎶 Live Music</span><span>🎉 Festivals &amp; Special Events</span><span>🍽️ Food, Markets &amp; Social events</span><span>🎬 Cinema</span><span>🎭 Theatre, Comedy &amp; Performances</span><span>📚 Talks, Literature &amp; Culture</span><span>🚶 Sports &amp; Outdoors</span><span>🌙 Nightlife</span><span>💗 Zuppie Picks</span></div>
+<div class="about-card"><h2>One city. More plans.</h2></div></div></details>
 <details id="terms"><summary>Terms</summary><div><p>ZUPPIE BASEL is an independent editorial guide to public adult-relevant events and published restaurant/bar offers within Basel municipality. It is not an event organiser, venue, booking service or ticket seller.</p><p>Details such as opening times, line-ups, ticket prices, entry conditions, cancellations and happy-hour offer terms can change. Always confirm the current information on the linked organiser or venue's official page before making plans.</p><p>External names, logos and third-party content remain the property of their owners. Any sponsorship or affiliate partnership will be identified where relevant.</p></div></details>
 <details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. Microsoft Clarity is used for website analytics to help understand how visitors use ZUPPIE. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
 <details id="impressum"><summary>Impressum</summary><div><p>ZUPPIE BASEL — independent Basel city culture and leisure guide. Instagram contact: <a href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">@zuppiebasel ↗</a>.</p></div></details>
@@ -760,7 +757,6 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
 </div>
 <script>
 /* In-page navigation only. No GUGU tracking or family-project scripts. */
-document.querySelectorAll('.nav-pop label').forEach(function(label){label.addEventListener('click',function(){document.getElementById('menu-toggle').checked=false;});});
 /* Event details from user-provided ZUPPIE locked edition, 09–11 October 2026. */
 </script>
 </body></html>
