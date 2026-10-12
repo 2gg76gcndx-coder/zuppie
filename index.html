@@ -17,7 +17,7 @@
 <!-- Upload logo.png next to index.html in the ZUPPIE GitHub Pages repository. -->
 <link href="/assets/favicon.PNG" rel="icon" type="image/png"/>
 <link href="/assets/favicon.PNG" rel="apple-touch-icon"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZUPPIE BASEL","url":"https://zuppie.ch/","logo":"https://zuppie.ch/logo.png","description":"Discover what’s on in Basel: concerts, exhibitions, markets, cinema, theatre, happy hours, nightlife and more — curated for Friday nights and weekends."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZUPPIE BASEL","url":"https://zuppie.ch/","logo":"https://zuppie.ch/logo.png","description":"Discover what’s on in Basel: concerts, exhibitions, markets, cinema, theatre, happy hours, nightlife and more — curated for Friday nights and weekends.","founder":{"@type":"Person","name":"Kübra Bulut Sengupta"}}</script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -615,9 +615,24 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
   letter-spacing: -.012em !important;
 }
 </style>
+<style id="zuppie-about-social">
+.social-links{display:flex;justify-content:center;align-items:center;gap:16px;margin:17px 0 0}
+.social-link{display:grid;place-items:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:var(--lavender);color:var(--wine);text-decoration:none;transition:background .15s,color .15s,transform .15s}
+.social-link:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+.social-link:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.legal details+details{border-top-color:var(--line)}
+.legal p{margin:0 0 10px}.legal p:last-child{margin-bottom:0}
+.site-menu{position:absolute;top:14px;right:16px;z-index:40}
+.site-menu>summary{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--lavender);color:var(--wine);cursor:pointer;list-style:none;font-size:24px}
+.site-menu>summary::-webkit-details-marker{display:none}
+.site-menu nav{position:absolute;top:50px;right:0;width:190px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px rgba(64,35,63,.15)}
+.site-menu nav a{display:block;padding:11px;border-radius:10px;color:var(--wine);text-decoration:none;font-weight:800}
+.site-menu nav a:hover,.site-menu nav a:focus-visible{background:var(--lavender)}
+</style>
 </head><body>
 <div class="app">
 <div class="hero">
+<details class="site-menu"><summary aria-label="Open navigation menu">☰</summary><nav aria-label="Main navigation"><a href="#events-panel">Weekend plans</a><a href="#about-zuppie">About us</a><a href="#terms">Terms</a><a href="#privacy">Privacy</a><a href="#impressum">Impressum</a></nav></details>
 <img alt="ZUPPIE BASEL — Basel City Life &amp; Weekend Plans" class="hero-art" fetchpriority="high" src="./assets/Header.PNG"/>
 </div>
 <div class="panels">
@@ -824,19 +839,42 @@ html,body{background:#fff4f2!important;color:var(--ink)!important}
 <!-- WEEKEND PLANS: SUNDAY END -->
 </section>
 </div>
-<footer class="site-footer"><a aria-label="Contact ZUPPIE BASEL on Instagram @zuppiebasel" class="contact" href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank"><span class="ig">◎</span><span><strong>Follow Zuppie Basel on Instagram</strong><small>@zuppiebasel ↗</small></span></a>
+<footer class="site-footer">
 <section class="legal">
-<details id="about-zuppie"><summary>About Zuppie</summary><div><div class="about-heading"><h1>Meet ZUPPIE BASEL ✨</h1><p>Big kids make plans too.</p></div>
-<div class="about-card"><h2>A little more grown-up. Just as curious.</h2><p>It started with GUGU (gugubasel.ch) and little explorers. ZUPPIE is its sister for the big ones: exhibitions to see, shows to catch, music to hear and corners of Basel to discover.</p></div>
-<div class="about-grid"><span>🍸 Happy Hour</span><span>🎶 Live Music</span><span>🎉 Festivals &amp; Special Events</span><span>🍽️ Food, Markets &amp; Social events</span><span>🎬 Cinema</span><span>🎭 Theatre, Comedy &amp; Performances</span><span>📚 Talks, Literature &amp; Culture</span><span>🚶 Sports &amp; Outdoors</span><span>🌙 Nightlife</span><span>💗 Zuppie Picks</span></div>
-<div class="about-card"><h2>One city. More plans.</h2></div></div></details>
-<details id="terms"><summary>Terms</summary><div><p>ZUPPIE BASEL is an independent editorial guide to public adult-relevant events and published restaurant/bar offers within Basel municipality. It is not an event organiser, venue, booking service or ticket seller.</p><p>Details such as opening times, line-ups, ticket prices, entry conditions, cancellations and happy-hour offer terms can change. Always confirm the current information on the linked organiser or venue's official page before making plans.</p><p>External names, logos and third-party content remain the property of their owners. Any sponsorship or affiliate partnership will be identified where relevant.</p></div></details>
+<details id="about-zuppie"><summary>About us</summary><div>
+<p>ZUPPIE BASEL is an independent guide to Basel city life, created and managed by Kübra Bulut Sengupta.</p>
+<p>We curate events, culture and leisure ideas for adults in Basel, from Friday evenings through the weekend. ZUPPIE is the sister platform of <a href="https://gugubasel.ch/" rel="noopener noreferrer" target="_blank">Gugu Basel</a>, our guide for families.</p>
+</div></details>
+<details id="terms"><summary>Terms</summary><div>
+<p>Content is provided for general information and planning. Event times, programmes, prices, entry conditions, availability and offers may change. Please confirm current details with the linked organiser or venue before travelling, booking or purchasing.</p>
+<p>ZUPPIE BASEL is not an event organiser, venue, booking service or ticket seller unless expressly stated. We do not control third-party websites and are not responsible for their content, bookings, purchases, services, terms or privacy practices.</p>
+<p>Sponsored content, paid partnerships and affiliate links will be clearly identified near the relevant content. Editorial inclusion alone does not constitute an endorsement or warranty.</p>
+<p>Original ZUPPIE BASEL text, branding, layout and editorial selections are protected to the extent permitted by applicable law. Third-party names, trademarks, images and content remain the property of their respective owners.</p>
+</div></details>
 <details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. Microsoft Clarity is used for website analytics to help understand how visitors use ZUPPIE. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
-<details id="impressum"><summary>Impressum</summary><div><p>ZUPPIE BASEL — independent Basel city culture and leisure guide. Instagram contact: <a href="https://www.instagram.com/zuppiebasel?stkn=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" target="_blank">@zuppiebasel ↗</a>.</p></div></details>
-</section><p class="copyright">© 2026 ZUPPIE BASEL. All rights reserved.</p></footer>
+<details id="impressum"><summary>Impressum</summary><div>
+<p><strong>Website operator and editorial responsibility:</strong><br/>Kübra Bulut Sengupta</p>
+<p><strong>Location:</strong> Basel, Switzerland</p>
+<p><strong>Contact:</strong> <a href="mailto:zuppiebasel@hotmail.com">zuppiebasel@hotmail.com</a></p>
+</div></details>
+</section><p class="copyright">© 2026 ZUPPIE BASEL. All rights reserved.</p>
+<nav class="social-links" aria-label="Social media and email">
+<a class="social-link" href="https://instagram.com/zuppiebasel?rpxt=MTFsNDE0YmsxYWtobA%3D%3D&amp;utm_source=qr" aria-label="Instagram ZUPPIE BASEL" title="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+<a class="social-link" href="https://www.facebook.com/share/14rsh1j8TMS/?mibextid=wwXIfr" aria-label="Facebook ZUPPIE BASEL" title="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 21v-8h3l.5-3H14V8c0-.9.3-1.5 1.6-1.5H18V3.2c-.4-.1-1.8-.2-3.2-.2C11.5 3 10 4.9 10 8v2H7v3h3v8z"/></svg></a>
+<a class="social-link" href="mailto:zuppiebasel@hotmail.com" aria-label="Email ZUPPIE BASEL" title="Email"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><rect x="2.5" y="4.5" width="19" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3.5 6 8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</nav></footer>
 </div>
 <script>
 /* In-page navigation only. No GUGU tracking or family-project scripts. */
 /* Event details from user-provided ZUPPIE locked edition, 09–11 October 2026. */
+</script>
+<script>
+document.querySelectorAll('.site-menu a').forEach(function(link){
+  link.addEventListener('click',function(){
+    var target=document.querySelector(link.getAttribute('href'));
+    if(target && target.tagName==='DETAILS'){target.open=true;}
+    link.closest('.site-menu').open=false;
+  });
+});
 </script>
 </body></html>
