@@ -930,4 +930,24 @@ document.querySelectorAll('.site-menu a').forEach(function(link){
   });
 });
 </script>
+<script id="zuppie-auto-weekend-day">
+/* Select the opening day using Basel's local calendar, regardless of visitor timezone.
+   Saturday -> Saturday; Sunday -> Sunday; all other days -> Friday evening.
+   Visitors can still choose any day manually afterward. */
+(function () {
+  function setOpeningDay() {
+    var weekday = new Intl.DateTimeFormat('en-US', {
+      weekday: 'short', timeZone: 'Europe/Zurich'
+    }).format(new Date());
+    var dayId = weekday === 'Sat' ? 'day-sat' : weekday === 'Sun' ? 'day-sun' : 'day-fri';
+    var tab = document.getElementById(dayId);
+    if (tab) tab.checked = true;
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setOpeningDay, {once:true});
+  } else {
+    setOpeningDay();
+  }
+})();
+</script>
 </body></html>
