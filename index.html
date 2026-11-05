@@ -18,12 +18,22 @@
 <link href="/assets/favicon.PNG" rel="icon" type="image/png"/>
 <link href="/assets/favicon.PNG" rel="apple-touch-icon"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ZUPPIE BASEL","url":"https://zuppie.ch/","logo":"https://zuppie.ch/logo.png","description":"Discover what’s on in Basel: concerts, exhibitions, markets, cinema, theatre, happy hours, nightlife and more — curated for Friday nights and weekends.","founder":{"@type":"Person","name":"Kübra Bulut Sengupta"}}</script>
-<script type="text/javascript">
+<script id="zuppie-consent-analytics">
+/* Optional analytics: never load Microsoft Clarity before explicit agreement. */
+(function(){
+  var key='zuppie-analytics-consent-v1';
+  window.zuppieConsentKey=key;
+  window.zuppieLoadAnalytics=function(){
+    if(window.zuppieAnalyticsLoaded)return;
+    window.zuppieAnalyticsLoaded=true;
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ys08xmoj24");
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,'clarity','script','ys08xmoj24');
+  };
+  try{if(localStorage.getItem(key)==='agree')window.zuppieLoadAnalytics();}catch(e){}
+})();
 </script>
 <style>
 
@@ -760,7 +770,18 @@ html{overflow-y:scroll;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-co
 #events-panel .event-art-placeholder{background:#f1e7ed;color:#856b7e}
 #events-panel .event-image-credit strong{font-size:9px;font-weight:400}
 .plans-date-line .date-title{overflow-wrap:anywhere}
-</style></head><body>
+</style><style id="zuppie-cookie-consent-style">
+#zuppie-cookie-banner[hidden]{display:none!important}
+#zuppie-cookie-banner{position:fixed;bottom:max(12px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:2005;width:min(400px,calc(100vw - 28px));padding:16px;background:#fffafc;color:#542c55;border:1px solid #e9cddd;border-radius:18px;box-shadow:0 12px 38px rgba(64,35,63,.22);font-family:inherit;text-align:center}
+#zuppie-cookie-banner p{margin:0 0 12px;font-size:13px;line-height:1.4;font-weight:700}
+.zuppie-cookie-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.zuppie-cookie-buttons button{font:inherit;font-size:13px;font-weight:900;min-height:40px;border-radius:12px;cursor:pointer}
+#zuppie-cookie-disagree{background:white;color:#663257;border:1px solid #b98aaa}
+#zuppie-cookie-agree{background:#7e3668;color:white;border:1px solid #7e3668}
+.zuppie-cookie-buttons button:focus-visible,#zuppie-cookie-settings:focus-visible{outline:3px solid #a04779;outline-offset:2px}
+#zuppie-cookie-settings{font:inherit;font-size:12px;font-weight:800;border:0;background:transparent;color:#a04779;text-decoration:underline;cursor:pointer;padding:4px 0}
+</style>
+</head><body>
 <div class="app" id="page-content">
 <div class="hero">
 <button id="saved-events-open" type="button" aria-label="Open pinned items" aria-haspopup="dialog" aria-controls="saved-events-dialog" aria-expanded="false" class="notranslate" translate="no">📌<span id="saved-events-count">0</span></button>
@@ -894,7 +915,7 @@ html{overflow-y:scroll;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-co
 <p>Sponsored content, paid partnerships and affiliate links will be clearly identified near the relevant content. Editorial inclusion alone does not constitute an endorsement or warranty.</p>
 <p>Original ZUPPIE BASEL text, branding, layout and editorial selections are protected to the extent permitted by applicable law. Third-party names, trademarks, images and content remain the property of their respective owners.</p>
 </div></details>
-<details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. Pinned events are saved in your browser on this device; no account is needed. Microsoft Clarity is used for website analytics to help understand how visitors use ZUPPIE. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
+<details id="privacy"><summary>Privacy</summary><div><p>This static page does not require an account or use an on-site contact form. Pinned events are saved in your browser on this device; no account is needed. With your agreement, we use Microsoft Clarity analytics to understand website usage and improve ZUPPIE. You can decline or change your choice here: <button id="zuppie-cookie-settings" type="button">Cookie settings</button>. The hosting provider may process technical connection information. External links have their own privacy policies.</p></div></details>
 <details id="impressum"><summary>Impressum</summary><div>
 <p><strong>Website operator and editorial responsibility:</strong><br/>Kübra Bulut Sengupta</p>
 <p><strong>Location:</strong> Basel, Switzerland</p>
@@ -998,4 +1019,37 @@ function init(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
-<script id="zuppie-session-counts">(function(){function countSessions(){document.querySelectorAll('.day-panel').forEach(function(day){var unique=new Set();day.querySelectorAll('.event-group').forEach(function(group){if(group.dataset.category==='picks'||group.dataset.category==='happyhour')return;group.querySelectorAll('.event-row').forEach(function(row){unique.add(row.dataset.sessionKey);});});var badge=day.querySelector('.plan-count-pill');if(badge){badge.textContent=String(unique.size);badge.setAttribute('aria-label',unique.size+' event sessions');}});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',countSessions,{once:true});else countSessions();})();</script></body></html>
+<script id="zuppie-session-counts">(function(){function countSessions(){document.querySelectorAll('.day-panel').forEach(function(day){var unique=new Set();day.querySelectorAll('.event-group').forEach(function(group){if(group.dataset.category==='picks'||group.dataset.category==='happyhour')return;group.querySelectorAll('.event-row').forEach(function(row){unique.add(row.dataset.sessionKey);});});var badge=day.querySelector('.plan-count-pill');if(badge){badge.textContent=String(unique.size);badge.setAttribute('aria-label',unique.size+' event sessions');}});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',countSessions,{once:true});else countSessions();})();</script><section id="zuppie-cookie-banner" role="dialog" aria-label="Analytics cookie choice" aria-describedby="zuppie-cookie-message" hidden>
+<p id="zuppie-cookie-message">Allow analytics cookies to help us understand site usage and improve ZUPPIE?</p>
+<div class="zuppie-cookie-buttons"><button type="button" id="zuppie-cookie-disagree">Disagree</button><button type="button" id="zuppie-cookie-agree">Agree</button></div>
+</section>
+<script id="zuppie-cookie-consent-ui">
+(function(){
+  function init(){
+    var banner=document.getElementById('zuppie-cookie-banner');
+    var key=window.zuppieConsentKey||'zuppie-analytics-consent-v1';
+    var choice=null;
+    try{choice=localStorage.getItem(key);}catch(e){}
+    banner.hidden=(choice==='agree'||choice==='disagree');
+    function choose(value){
+      var previous=null;
+      try{previous=localStorage.getItem(key);localStorage.setItem(key,value);}catch(e){}
+      banner.hidden=true;
+      if(value==='agree')window.zuppieLoadAnalytics();
+      else if(previous==='agree'){
+        /* Remove browser-accessible Clarity cookies, then reload without analytics. */
+        ['_clck','_clsk'].forEach(function(name){
+          document.cookie=name+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+          document.cookie=name+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.zuppie.ch';
+        });
+        location.reload();
+      }
+    }
+    document.getElementById('zuppie-cookie-agree').addEventListener('click',function(){choose('agree');});
+    document.getElementById('zuppie-cookie-disagree').addEventListener('click',function(){choose('disagree');});
+    document.getElementById('zuppie-cookie-settings').addEventListener('click',function(){banner.hidden=false;});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+</body></html>
